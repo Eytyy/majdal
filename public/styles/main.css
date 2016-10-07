@@ -116,14 +116,14 @@ p strong {
     .site-header {
       padding-top: 4.5em; } }
 
-.home .site-header {
+.home .site-header, .oils .site-header {
   opacity: 0;
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
   -webkit-transition: opacity 0.5s linear;
   transition: opacity 0.5s linear; }
 
-.home.js-oils-inview .site-header {
+.home.js-oils-inview .site-header, .oils.js-oils-inview .site-header {
   opacity: 1;
   -webkit-transform: initial;
           transform: initial; }

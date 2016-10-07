@@ -1,7 +1,10 @@
 import React, { PropTypes } from 'react';
+
 import Oils from './Oils';
 import Video from './Video';
+
 import { debounce } from 'lodash';
+
 import Hammer from 'react-hammerjs';
 
 class Home extends React.Component {
@@ -31,7 +34,7 @@ class Home extends React.Component {
 
   init() {
     document.getElementById('app').addEventListener('wheel', debounce(
-      this.onmouse, 200, { leading: true, trailing: false })
+      this.onmouse, 200, { leading: true, trailing: true })
     );
   }
 
