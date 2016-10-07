@@ -9,6 +9,7 @@ class Home extends React.Component {
     super();
     this.setState = this.setState.bind(this);
     this.onmouse = this.onmouse.bind(this);
+    this.handleSwipe = this.handleSwipe.bind(this);
     this.state = {
       active: false,
     };

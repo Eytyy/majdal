@@ -27159,6 +27159,7 @@
 
 	    _this.setState = _this.setState.bind(_this);
 	    _this.onmouse = _this.onmouse.bind(_this);
+	    _this.handleSwipe = _this.handleSwipe.bind(_this);
 	    _this.state = {
 	      active: false
 	    };
