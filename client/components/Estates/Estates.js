@@ -2,7 +2,6 @@ import React from 'react'
 import { getEstates, getAdjacentEstates } from '../../util/helpers';
 
 import EstateItem from './EstateItem';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import { debounce } from 'lodash';
 import Hammer from 'react-hammerjs';
@@ -112,19 +111,14 @@ class Estates extends React.Component {
 
   render() {
     return (
-      <ReactCSSTransitionGroup
-        transitionName="estateSlider"
-        transitionEnterTimeout={1000}
-        transitionLeaveTimeout={1000} >
-        <Hammer onSwipe={this.handleSwipe} direction="DIRECTION_VERTICAL" >
-          <EstateItem
-            estate={this.state.estate}
-            sub={this.state.subs}
-            nav={this.state.nav}
-            s3Path={this.props.s3Path}
-          />
-        </Hammer>
-      </ReactCSSTransitionGroup>
+      <Hammer onSwipe={this.handleSwipe} direction="DIRECTION_VERTICAL" >
+        <EstateItem
+          estate={this.state.estate}
+          sub={this.state.subs}
+          nav={this.state.nav}
+          s3Path={this.props.s3Path}
+        />
+      </Hammer>
     );
   }
 }
