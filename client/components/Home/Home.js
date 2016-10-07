@@ -60,7 +60,11 @@ class Home extends React.Component {
   render() {
     const options = {
       recognizers: {
-        swipe: {
+        swipeup: {
+            time: 600,
+            threshold: 100
+        },
+        swipeup: {
             time: 600,
             threshold: 100
         }
