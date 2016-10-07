@@ -19,14 +19,13 @@ class Home extends React.Component {
     this.setState({
       active: direction === 'down',
     });
-    setTimeout(() => {
-      document.querySelector('html').classList.remove('scrolling');
-    }, 1000);
   }
 
   handleSwipe(event) {
-    console.log('yo');
-    console.log(event);
+    const direction = (event.deltaX < 0) ? 'up' : 'down';
+    this.setState({
+      active: direction === 'down',
+    });
   }
 
   init() {

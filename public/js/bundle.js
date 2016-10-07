@@ -27172,15 +27172,14 @@
 	      this.setState({
 	        active: direction === 'down'
 	      });
-	      setTimeout(function () {
-	        document.querySelector('html').classList.remove('scrolling');
-	      }, 1000);
 	    }
 	  }, {
 	    key: 'handleSwipe',
 	    value: function handleSwipe(event) {
-	      console.log('yo');
-	      console.log(event);
+	      var direction = event.deltaX < 0 ? 'up' : 'down';
+	      this.setState({
+	        active: direction === 'down'
+	      });
 	    }
 	  }, {
 	    key: 'init',
