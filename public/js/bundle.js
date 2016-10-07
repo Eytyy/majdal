@@ -27224,7 +27224,7 @@
 	      };
 	      return _react2.default.createElement(
 	        _reactHammerjs2.default,
-	        { onSwipe: this.handleSwipe, direction: 'DIRECTION_ALL' },
+	        { onSwipe: this.handleSwipe, direction: 'DIRECTION_VERTICAL' },
 	        _react2.default.createElement(
 	          'section',
 	          { className: 'section-home-wrapper' },
