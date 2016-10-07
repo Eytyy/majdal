@@ -11,7 +11,7 @@ import Estates from './components/Estates/Estates';
 import Estate from './components/Estates/EstateItem';
 
 ReactDOM.render(
-  <Router history={browserHistory}>
+  <Router history={ browserHistory }>
     <Route path="/" component = { Home }></Route>
     <Route path="/oils" component = { Home }></Route>
     <Route path="/estate" component = { Estates }>

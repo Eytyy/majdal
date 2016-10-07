@@ -27127,6 +27127,12 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _lodash = __webpack_require__(262);
+
+	var _reactHammerjs = __webpack_require__(264);
+
+	var _reactHammerjs2 = _interopRequireDefault(_reactHammerjs);
+
 	var _Oils = __webpack_require__(236);
 
 	var _Oils2 = _interopRequireDefault(_Oils);
@@ -27135,11 +27141,7 @@
 
 	var _Video2 = _interopRequireDefault(_Video);
 
-	var _lodash = __webpack_require__(262);
-
-	var _reactHammerjs = __webpack_require__(264);
-
-	var _reactHammerjs2 = _interopRequireDefault(_reactHammerjs);
+	var _helpers = __webpack_require__(237);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27183,8 +27185,46 @@
 	      });
 	    }
 	  }, {
+	    key: 'initSlider',
+	    value: function initSlider() {
+	      $('.oils-slider').slick({
+	        dots: true,
+	        fade: true,
+	        arrows: false
+	      });
+	    }
+	  }, {
+	    key: 'fetchOilData',
+	    value: function fetchOilData() {
+	      var _this2 = this;
+
+	      (0, _helpers.getOils)().then(function (response) {
+	        _this2.setState({
+	          oils: response.data.oils
+	        });
+	        _this2.initSlider();
+	      }).catch(function (err) {
+	        console.log(err);
+	      });
+	    }
+	  }, {
+	    key: 'fetchVideo',
+	    value: function fetchVideo() {
+	      var _this3 = this;
+
+	      (0, _helpers.getFrontVideo)().then(function (response) {
+	        _this3.setState({
+	          video: response.data
+	        });
+	      }).catch(function (err) {
+	        console.log(err);
+	      });
+	    }
+	  }, {
 	    key: 'init',
 	    value: function init() {
+	      this.fetchVideo();
+	      this.fetchOilData();
 	      document.getElementById('app').addEventListener('wheel', (0, _lodash.debounce)(this.onmouse, 200, { leading: true, trailing: false }));
 	    }
 	  }, {
@@ -27220,8 +27260,8 @@
 	        _react2.default.createElement(
 	          'section',
 	          { className: 'section-home-wrapper' },
-	          _react2.default.createElement(_Video2.default, { active: this.state.active }),
-	          _react2.default.createElement(_Oils2.default, null)
+	          _react2.default.createElement(_Video2.default, { data: this.state.video, active: this.state.active }),
+	          _react2.default.createElement(_Oils2.default, { data: this.state.oils })
 	        )
 	      );
 	    }
@@ -27236,7 +27276,7 @@
 /* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -27247,8 +27287,6 @@
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
-
-	var _helpers = __webpack_require__(237);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27264,61 +27302,34 @@
 	  function Oils() {
 	    _classCallCheck(this, Oils);
 
-	    var _this = _possibleConstructorReturn(this, (Oils.__proto__ || Object.getPrototypeOf(Oils)).call(this));
-
-	    _this.state = {
-	      data: []
-	    };
-	    return _this;
+	    return _possibleConstructorReturn(this, (Oils.__proto__ || Object.getPrototypeOf(Oils)).apply(this, arguments));
 	  }
 
 	  _createClass(Oils, [{
-	    key: 'initSlider',
-	    value: function initSlider() {
-	      $('.oils-slider').slick({
-	        dots: true,
-	        fade: true,
-	        arrows: false
-	      });
-	    }
-	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var _this2 = this;
-
-	      (0, _helpers.getOils)().then(function (response) {
-	        _this2.setState({
-	          data: response.data.oils
-	        });
-	        _this2.initSlider();
-	      }).catch(function (err) {
-	        console.log(err);
-	      });
-	    }
-	  }, {
-	    key: 'rawMarkup',
+	    key: "rawMarkup",
 	    value: function rawMarkup(markup) {
 	      return { __html: markup };
 	    }
 	  }, {
-	    key: 'render',
+	    key: "render",
 	    value: function render() {
-	      var _this3 = this;
+	      var _this2 = this;
 
-	      var oils = this.state.data.map(function (slide, index) {
+	      var oils = this.props.data.map(function (slide, index) {
 	        var styles = {
-	          backgroundImage: 'url(\'' + _this3.props.s3Path + slide.image.filename + '\')'
+	          backgroundImage: "url('" + _this2.props.s3Path + slide.image.filename + "')"
 	        };
 	        return _react2.default.createElement(
-	          'div',
-	          { className: 'slide', key: index },
-	          _react2.default.createElement('div', { className: 'slide__image', style: styles }),
-	          _react2.default.createElement('div', { className: 'slide__description', dangerouslySetInnerHTML: _this3.rawMarkup(slide.description) })
+	          "div",
+	          { className: "slide", key: index },
+	          _react2.default.createElement("div", { className: "slide__image", style: styles }),
+	          _react2.default.createElement("div", { className: "slide__description",
+	            dangerouslySetInnerHTML: _this2.rawMarkup(slide.description) })
 	        );
 	      });
 	      return _react2.default.createElement(
-	        'div',
-	        { className: 'oils-slider slider' },
+	        "div",
+	        { className: "oils-slider slider" },
 	        oils
 	      );
 	    }
@@ -27328,6 +27339,7 @@
 	}(_react2.default.Component);
 
 	Oils.defaultProps = {
+	  data: [],
 	  s3Path: 'https://s3.amazonaws.com/eytyy.com/oils/'
 	};
 
@@ -28789,8 +28801,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _helpers = __webpack_require__(237);
-
 	var _smoothscroll = __webpack_require__(261);
 
 	var _smoothscroll2 = _interopRequireDefault(_smoothscroll);
@@ -28808,14 +28818,11 @@
 	var Video = function (_React$Component) {
 	  _inherits(Video, _React$Component);
 
-	  function Video() {
+	  function Video(props) {
 	    _classCallCheck(this, Video);
 
 	    var _this = _possibleConstructorReturn(this, (Video.__proto__ || Object.getPrototypeOf(Video)).call(this));
 
-	    _this.state = {
-	      data: []
-	    };
 	    _this.domMap = {
 	      body: document.querySelector('body')
 	    };
@@ -28829,21 +28836,12 @@
 	  _createClass(Video, [{
 	    key: 'init',
 	    value: function init() {
-	      var _this2 = this;
-
-	      (0, _helpers.getFrontVideo)().then(function (response) {
-	        _this2.setState({
-	          data: response.data
-	        });
-	      }).catch(function (err) {
-	        console.log(err);
-	      });
 	      this.refs.video.addEventListener('ended', this.scrollSection);
 	    }
 	  }, {
 	    key: 'scrollSection',
 	    value: function scrollSection() {
-	      var _this3 = this;
+	      var _this2 = this;
 
 	      var vid = this.refs.video;
 	      var section = document.querySelector('.oils-slider');
@@ -28855,19 +28853,19 @@
 	      if (!this.domMap.body.classList.contains('js-oils-inview')) {
 	        (0, _smoothscroll2.default)(section);
 	        setTimeout(function () {
-	          _this3.domMap.body.classList.add('js-oils-inview');
+	          _this2.domMap.body.classList.add('js-oils-inview');
 	        }, 400);
 	      }
 	    }
 	  }, {
 	    key: 'scrollParent',
 	    value: function scrollParent() {
-	      var _this4 = this;
+	      var _this3 = this;
 
 	      var section = this.refs.video;
 	      (0, _smoothscroll2.default)(section);
 	      setTimeout(function () {
-	        _this4.domMap.body.classList.remove('js-oils-inview');
+	        _this3.domMap.body.classList.remove('js-oils-inview');
 	      }, 400);
 	    }
 	  }, {
@@ -28920,11 +28918,11 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var video = void 0;
-	      var styles = void 0;
-	      var vid = void 0;
-	      if (this.state.data.video) {
-	        video = this.state.data.video[0];
+	      var video = void 0,
+	          styles = void 0,
+	          vid = void 0;
+	      if (this.props.data.video) {
+	        video = this.props.data.video[0];
 	        styles = {
 	          backgroundImage: 'url(\'' + this.props.s3Path + video.placeholder.filename + '\')'
 	        };
@@ -28963,6 +28961,7 @@
 	}(_react2.default.Component);
 
 	Video.defaultProps = {
+	  data: [],
 	  s3Path: 'https://s3.amazonaws.com/eytyy.com/resources/front-video/'
 	};
 

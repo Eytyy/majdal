@@ -1,14 +1,10 @@
 import React, { PropTypes } from 'react';
-import { getFrontVideo } from '../../util/helpers';
 import smoothScroll from 'smoothscroll';
 import { Link } from 'react-router';
 
 class Video extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
-    this.state = {
-      data: [],
-    };
     this.domMap = {
       body: document.querySelector('body'),
     };
@@ -19,13 +15,6 @@ class Video extends React.Component {
   }
 
   init() {
-    getFrontVideo().then(response => {
-      this.setState({
-        data: response.data,
-      });
-    }).catch(err => {
-      console.log(err);
-    });
     this.refs.video.addEventListener('ended', this.scrollSection);
   }
 
@@ -95,11 +84,9 @@ class Video extends React.Component {
   }
 
   render() {
-    let video;
-    let styles;
-    let vid;
-    if (this.state.data.video) {
-      video = this.state.data.video[0];
+    let video, styles, vid;
+    if (this.props.data.video) {
+      video = this.props.data.video[0];
       styles = {
         backgroundImage: `url('${this.props.s3Path}${video.placeholder.filename}')`,
       };
@@ -125,6 +112,7 @@ class Video extends React.Component {
 }
 
 Video.defaultProps = {
+  data: [],
   s3Path: 'https://s3.amazonaws.com/eytyy.com/resources/front-video/',
 };
 

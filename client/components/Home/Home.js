@@ -1,11 +1,13 @@
 import React, { PropTypes } from 'react';
+import { debounce } from 'lodash';
+import Hammer from 'react-hammerjs';
 
 import Oils from './Oils';
 import Video from './Video';
 
-import { debounce } from 'lodash';
+import { getOils } from '../../util/helpers';
+import { getFrontVideo } from '../../util/helpers';
 
-import Hammer from 'react-hammerjs';
 
 class Home extends React.Component {
   constructor() {
@@ -32,7 +34,38 @@ class Home extends React.Component {
     });
   }
 
+  initSlider() {
+    $('.oils-slider').slick({
+      dots: true,
+      fade: true,
+      arrows: false
+    });
+  }
+
+  fetchOilData() {
+    getOils().then(response => {
+      this.setState({
+        oils: response.data.oils,
+      });
+      this.initSlider();
+    }).catch(err => {
+      console.log(err);
+    });
+  }
+
+  fetchVideo() {
+    getFrontVideo().then(response => {
+      this.setState({
+        video: response.data,
+      });
+    }).catch(err => {
+      console.log(err);
+    });
+  }
+
   init() {
+    this.fetchVideo();
+    this.fetchOilData();
     document.getElementById('app').addEventListener('wheel', debounce(
       this.onmouse, 200, { leading: true, trailing: false })
     );
@@ -62,10 +95,10 @@ class Home extends React.Component {
 
   render() {
     return (
-      <Hammer onSwipe={this.handleSwipe} direction="DIRECTION_VERTICAL" >
+      <Hammer onSwipe={ this.handleSwipe } direction="DIRECTION_VERTICAL" >
         <section className="section-home-wrapper">
-          <Video active={this.state.active} />
-          <Oils />
+          <Video data={ this.state.video } active={ this.state.active } />
+          <Oils data={ this.state.oils } />
         </section>
       </Hammer>
     );
