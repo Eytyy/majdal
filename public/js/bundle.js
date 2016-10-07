@@ -29427,6 +29427,7 @@
 	      body: document.querySelector('body')
 	    };
 	    _this.onmouse = _this.onmouse.bind(_this);
+	    _this.handleSwipe = _this.handleSwipe.bind(_this);
 	    return _this;
 	  }
 

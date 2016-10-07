@@ -20,6 +20,7 @@ class Estates extends React.Component {
       body: document.querySelector('body'),
     };
     this.onmouse = this.onmouse.bind(this);
+    this.handleSwipe = this.handleSwipe.bind(this);
   }
 
   onmouse(event) {
