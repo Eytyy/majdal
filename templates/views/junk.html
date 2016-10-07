@@ -1,0 +1,21 @@
+{% for estate in data.estate %}
+  <section id="app" class="estate estate-section estate-section--{{estate.title | lower}}">
+    {# Estate subsections #}
+    {% for sub in data.subs %}
+      {% if sub.estate | string == estate._id | string %}
+        {% if sub.template == 'Image' %}
+        <section class="estate__sub estate__sub--image">
+          <div class="estate__sub__background" style="background-image: url('{{s3Path}}estates/{{sub.image.filename}}');"></div>
+          <div class="sub__text-wrapper">
+            <h2 class="sub__text">{{sub.text}}</h2>
+          </div>
+        {% else %}
+        <section class="estate__sub estate__sub--text">
+          <div class="sub__text-wrapper">
+            <p class="sub__text">{{sub.text}}</p>
+          </div>
+        {% endif %}
+        </section>
+      {% endif %}
+    {% endfor %}
+  </section>

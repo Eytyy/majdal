@@ -1,0 +1,55 @@
+.landing-header {
+  position: relative;
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+  transform: translateZ(0);
+}
+.landing-header--half {
+  height: 50vh;
+}
+.landing-header--full {
+  height: 100vh;
+}
+.landing-background {
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(80, 70, 68, 0.6);
+  background-blend-mode: multiply;
+}
+.landing-title,
+.landing-text-wrapper {
+  font-family: $body;
+  line-height: 1.1;
+  text-align: center;
+  color: #FFF;
+  position: absolute;
+}
+.landing-title {
+  font-size: 40px;
+  width: 100%;
+  bottom: 16.5%;
+  left: 0;
+  @include respond-to(medium) {
+    font-size: 60px;
+  }
+  @include respond-to(xxlarge) {
+    font-size: 90px;
+  }
+}
+.landing-text-wrapper {
+  font-size: 22px;
+  padding: 0 20px;
+  width: 100%;
+  left: 50%;
+  bottom: 33%;
+  transform: translateX(-50%);
+  @include respond-to(medium) {
+    font-size: 26px;
+    width: 50%;
+    padding: 0;
+  }
+  @include respond-to(xxlarge) {
+    font-size: 36px;
+  }
+}

@@ -1,0 +1,18 @@
+{% extends 'layouts/default.html' %}
+
+{% block content %}
+  {% if data.landing['header style'] == 'Title'%}
+  <div class="landing-header landing-header--half">
+    <div class="landing-background" style="background-image: url('{{s3Path}}landing-pages/{{data.landing.image.filename}}')"></div>
+    <h2 class="landing-title">{{data.landing['header title']}}</h2>
+  </div>
+  {% endif %}
+  {% if data.landing['header style'] == 'Paragraph'%}
+    <div class="landing-header landing-header--full" style="background-image: url('{{s3Path}}landing-pages/{{data.landing.image.filename}}')"></div>
+    <p class="landing-text">{{data.landing['header paragraph']}}</p>
+  {% endif %}
+  <div class="wrapper--content">
+    <!-- React Component -->
+    <section id="app" class="container"></section>
+  </div>
+{% endblock %}

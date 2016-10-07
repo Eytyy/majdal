@@ -1,0 +1,94 @@
+.contact {
+  background: $egg;
+  color: #FFF;
+  .site-header {
+    background: $egg;
+  }
+}
+
+.contact-us {
+  .section-title {
+    font-family: $title_b;
+    margin-bottom: 75px;
+  }
+}
+
+.contact__inner {
+  display: flex;
+  flex-direction: column;
+  @include respond-to(mashi) {
+    flex-direction: row;
+  }
+  @include respond-to(medium) {
+  }
+  @include respond-to(nosnos) {
+    width: calc(100% - 13.6%);
+    padding-left: 235px;
+  }
+}
+
+.contact__left,
+.contact__right {
+  font-family: $title_b;
+  font-size: 14px;
+}
+.contact__left {
+  flex: 1 1 320px;
+  display: flex;
+  justify-content: space-between;
+  @include respond-to(mashi) {
+    display: block;
+    max-width: 320px;
+    padding-right: 20px;
+  }
+  @include respond-to(large) {
+    padding-right: 140px;
+  }
+}
+.contact__right {
+  flex: 1 1 420px;
+  @include respond-to(mashi) {
+  }
+}
+.contact__group {
+  margin-bottom: 100px;
+}
+.contact__sub-group {
+  margin-bottom: 30px;
+}
+.contact__details {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form-group  {
+  display: flex;
+  margin-bottom: 30px;
+  align-items: center;
+  label {
+    flex: 1 1 100px;
+  }
+  .form-control {
+    font-family: $title;
+    line-height: 2;
+    flex: 1 1 100%;
+    outline: 0;
+  }
+}
+.form-group--message {
+  label {
+    align-self: flex-start;
+  }
+}
+
+input,
+textarea,
+button {
+  font-family: $title_b;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid #FFF;
+  color: #FFF;
+  margin: 0;
+  padding: 0;
+}

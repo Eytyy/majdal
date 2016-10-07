@@ -1,0 +1,75 @@
+{% extends "layouts/default.html" %}
+
+{% block intro %}
+{% endblock %}
+
+{% block content %}
+	<section class="contact-us">
+    <div class="wrapper">
+      <div class="contact__inner">
+        <div class="contact__left">
+          <div class="contact__group">
+            <div class="contact__sub-group">
+              <span class="contact__details">Assad Jiryes</span>
+              <span class="contact__details">General Manager</span>
+            </div>
+            <div class="contact__sub-group">
+              <span class="contact__details">P.O.Box: 35157</span>
+              <span class="contact__details">Amman 11180</span>
+              <span class="contact__details">Jordan</span>
+            </div>
+            <div class="contact__sub-group">
+              <span class="contact__details">Tel: +962 6 592 0295</span>
+              <span class="contact__details">Mob: +962 79 567 3546</span>
+              <span class="contact__details">Fax: +962 6 592 0615</span>
+            </div>
+            <div class="contact__sub-group">
+              <span class="contact__details">E-mail: majdal@wanadoo.jo</span>
+            </div>
+          </div>
+          <div class="contact__group">
+            <span class="contact__details">Ms. Frances Neild</span>
+            <span class="contact__details">UK Sales Representative</span>
+            <span class="contact__details">Tel: +44 776823 5941</span>
+            <span class="contact__details">e-mail: f_neild@yahoo.com</span>
+          </div>
+        </div>
+        <div class="contact__right">
+          <header class="section-header">
+            <h1 class="section-title">Contact</h1>
+          </header>
+          {% if enquirySubmitted %}
+            <h3>Thanks for getting in touch.</h3>
+          {% else %}
+            <form method="post">
+              <input type="hidden" name="action" value="contact">
+              {% set class = ( "has-error" if validationErrors.name else "" ) %}
+              <div class="form-group form-group--name {{ class }}">
+                <label>Name</label>
+                <input type="text" name="name.full" value="{{ formData["name.full"] }}" class="form-control">
+              </div>
+              {% set class = ( "has-error" if validationErrors.email else "" ) %}
+              <div class="form-group form-group--email {{ class }}">
+                <label>Email</label>
+                <input type="email" name="email" value="{{ formData.email }}" class="form-control">
+              </div>
+              {% set class = ( "has-error" if validationErrors.subject else "" ) %}
+              <div class="form-group form-group--subject {{ class }}">
+                <label>Subject</label>
+                <input type="text" name="subject" value="{{ formData.subject }}" class="form-control">
+              </div>
+              {% set class = ( "has-error" if validationErrors.message else "" ) %}
+              <div class="form-group form-group--message {{ class }}">
+                <label>Message</label>
+                <textarea name="message" rows="4" class="form-control">{{ formData.message }}</textarea>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Send</button>
+              </div>
+            </form>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+	</div>
+{% endblock %}

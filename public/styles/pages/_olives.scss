@@ -1,0 +1,111 @@
+.olives-inner {
+  .landing-header {
+    opacity: 0;
+    height: 33.33vh;
+  }
+  svg {
+    fill: $egg;
+  }
+  .nav--main .nav__link,
+  .social-link,
+  .nav--mobile {
+    color: $egg;
+  }
+  .nav__item--main.active .nav__link--main:before,
+  .nav__link--main:after {
+    background: $egg;
+  }
+  .nav--admin a {
+    color: #000;
+  }
+}
+.olives-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  margin-top: 10vh;
+}
+.olives-slider {
+  display: block;
+  padding: 0 20px;
+}
+.olives-list__item {
+  color: $egg;
+  text-align: center;
+  padding: 0 20px;
+}
+.olive__name {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.olive__desc {
+  font-size: 14px;
+}
+.olive__img {
+  position: relative;
+  height: 0;
+  padding-top: 50%;
+  margin-bottom: 40px;
+  overflow: hidden;
+  img {
+    display: block;
+    position: absolute;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  @include respond-to(xlarge) {
+    padding-top: 80%;
+    img {
+      height: auto;
+    }
+  }
+}
+.olive__info {
+  max-width: 200px;
+  margin: 0 auto;
+}
+.olive-slider__nav {
+  position: absolute;
+  top: 50%;
+  transform: tranlsateY(-50%);
+  outline: 0;
+  z-index: 1;
+  i {
+    font-size: 48px;
+    color: $egg;
+  }
+  &.nav--back {
+    left: 20px;
+  }
+  &.nav--next {
+    right: 20px;
+  }
+  @include respond-to(medium) {
+    &.nav--back {
+      left: 40px;
+    }
+    &.nav--next {
+      right: 40px;
+    }
+  }
+  @include respond-to(large) {
+    &.nav--back {
+      left: 75px;
+    }
+    &.nav--next {
+      right: 75px;
+    }
+  }
+  @include respond-to(xlarge) {
+    &.nav--back {
+      left: 0;
+    }
+    &.nav--next {
+      right: 0;
+    }
+  }
+
+}

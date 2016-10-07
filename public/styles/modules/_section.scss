@@ -1,0 +1,52 @@
+.section__skipLink {
+  @extend %centeredAbsElementH;
+  font-size: 36px;
+  bottom: 5vh;
+  z-index: 2;
+  color: #FFF;
+  display: block;
+  transition: transform 0.5s linear;
+  @include respond-to(medium) {
+    font-size: 46px;
+  }
+}
+.section__skipLink--estates {
+  border-bottom: 0;
+  bottom: -10vh;
+  line-height: 0;
+  outline: 0;
+  @include respond-to(medium) {
+    bottom: -15vh;
+  }
+}
+.c-section {
+  position: relative;
+}
+.c-section__full-image {
+  @extend %setFullSizeBackground;
+  background-color: rgba(80, 70, 68, 0.5);
+  background-blend-mode: multiply;
+}
+.c-section__floating-text {
+  @extend %centeredAbsElementH;
+  width: 100%;
+  bottom: 12vh;
+  text-align: center;
+  color: #FFF;
+
+}
+.c-section__wrapper {
+  position: relative;
+}
+.c-section__title {
+  font-family: $body;
+  font-size: 90px;
+  line-height: 1em;
+}
+.c-section__paragraph {
+  font-family: $body;
+  font-size: 36px;
+  line-height: 1;
+  max-width: 700px;
+  margin: 0 auto;
+}

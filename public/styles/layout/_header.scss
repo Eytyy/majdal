@@ -1,0 +1,135 @@
+/* layout/_header.scss */
+.site-header {
+  width: 100%;
+  padding-top: 2em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  @include respond-to(medium) {
+    padding-top: 4.5em;
+  }
+}
+
+.home {
+  .site-header {
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity 0.5s linear;
+  }
+  &.js-oils-inview {
+    .site-header {
+      opacity: 1;
+      transform: initial;
+    }
+  }
+}
+
+
+.website-logo {
+  width: 100px;
+  min-width: 100px;
+  color: #FFF;
+  z-index: 1;
+  order: 2;
+  flex: 1;
+  text-align: center;
+  svg {
+    width: 100%;
+    max-width: 100px;
+  }
+  @include respond-to(nosnos) {
+    flex: none;
+    width: 185px;
+    min-width: 185px;
+    max-width: 100%;
+    order: 1;
+    svg {
+      max-width: 100%;
+    }
+  }
+}
+
+.logo-link {
+  color: #FFF;
+}
+
+svg {
+  fill: currentColor;
+  line {
+    stroke: currentColor;
+  }
+}
+
+.nav--mobile {
+  position: absolute;
+  right: 20px;
+  @include respond-to(nosnos) {
+    display: none;
+  }
+}
+
+.nav-bar {
+  width: 72%;
+  height: 0;
+  flex: 1;
+  order: 3;
+  opacity: 0;
+  transform: translate3d(0, -100%, 0);
+  position: fixed;
+  .nav-bar__inner {
+    display: flex;
+  }
+  @include respond-to(nosnos) {
+    position: static;
+    transform: translateY(0);
+    opacity: 1;
+    height: 26px;
+    order: 2;
+  }
+}
+
+.nav--main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 50px 0;
+  flex: 1;
+}
+
+.nav--admin {
+  position: absolute;
+  right: $gutter;
+  top: -2.5em;
+  @include respond-to(medium) {
+    right: $gutter--large;
+  }
+  @include respond-to(large) {
+    right: $gutter--max;
+  }
+}
+
+.social-links {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  order: 1;
+  width: 30%;
+  max-width: 120px;
+  @include respond-to(nosnos) {
+    position: relative;
+    width: 13.6%;
+    max-width: 165px;
+    order: 3;
+  }
+}
+
+.social-link {
+  font-size: 21px;
+  color: #FFF;
+  padding: 0 10px;
+}

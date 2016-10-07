@@ -1,0 +1,52 @@
+/*  utils/_placeholders.scss */
+
+%clearfix {
+  &::after {
+    display: table;
+    content: '';
+    clear: both;
+  }
+}
+
+%setFullsizeComponent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+%setFullSizeBackground {
+  @extend %setFullsizeComponent;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+%centeredAbsElement {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+%centeredAbsElementH {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+%centeredAbsElementV {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+%moves {
+  opacity: 1;
+  transform: translateZ(0);
+}
+
+%hidden {
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+}

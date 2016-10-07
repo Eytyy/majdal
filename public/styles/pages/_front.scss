@@ -1,0 +1,47 @@
+/* pages/_front.scss */
+/* pages/_front.scss */
+.c-frontVid {
+  background: #000;
+}
+.frontVid__placeholder {
+  height: 100%;
+  position: relative;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  .js-video--playing & {
+    opacity: 0;
+  }
+}
+.frontVid__placeholder__logo {
+  @extend %centeredAbsElementH;
+  width: 38.888888888889%;
+  height: 35.888888888889%;
+  max-width: 35em;
+  max-height: 32em;
+  top: 10vh;
+  z-index: 1;
+  background: url('../images/majdal-logo.svg') center no-repeat;
+}
+.frontVid__placeholder__img {
+  @extend %setFullSizeBackground;
+  background-color: rgba(124,140,158,0.5);
+  background-blend-mode: multiply;
+}
+.frontVid__video {
+  @extend %setFullsizeComponent;
+  opacity: 0;
+  z-index: -1;
+}
+.frontVid__playBtn {
+  font-size: 21px;
+  font-family: $title_b;
+  display: block;
+  padding: 0 50px 20px;
+  position: absolute;
+  bottom: 20vh;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom: 2px solid #FFF;
+  color: #FFF;
+  cursor: pointer;
+}

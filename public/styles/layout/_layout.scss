@@ -1,0 +1,29 @@
+/* layout/_layout.scss */
+.full-height {
+  position: relative;
+  height: 100vh;
+}
+.half-height {
+  position: relative;
+  height: 50vh;
+}
+
+.wrapper {
+  @include wrapper('1720px');
+}
+.wrapper--content {
+  @include wrapper('1100px');
+}
+
+.section {
+  position: relative;
+}
+.contact main {
+  margin-top: 15em;
+  @include respond-to(medium) {
+    margin-top: 20em;
+  }
+}
+.home {
+  overflow: hidden;
+}

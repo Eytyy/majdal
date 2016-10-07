@@ -1,0 +1,318 @@
+// COMMON
+.estate-section__header,
+.estate__sub {
+  position: relative;
+  height: 66.66vh;
+
+  @include respond-to(medium) {
+    height: 33.33vh;
+  }
+}
+.estate-section__header--full,
+.estate__sub--text {
+  height: 33.33vh;
+}
+
+.estate__background,
+.estate__sub__background {
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+// HEADER
+.estate-section__header__inner {
+  position: relative;
+  .wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    height: 100%;
+    width: 100%;
+  }
+}
+// --split
+.estate-section__header--split {
+  display: flex;
+  flex-direction: column;
+  .estate__title-wrapper,
+  .estate__desc-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  .estate__title,
+  .estate__desc {
+    text-align: center;
+    margin: auto;
+  }
+  .estate__title-wrapper,
+  .estate__desc-wrapper {
+    height: 50%;
+  }
+  .estate__desc {
+    font-size: 14px;
+    line-height: 1.16;
+    max-width: 520px;
+    padding: 0 $gutter--large/1.4;
+  }
+  @include respond-to(medium) {
+    flex-direction: row;
+    .estate__desc {
+      font-size: 18px;
+      max-width: 600px;
+    }
+    .estate__title-wrapper {
+      width: 33.333333%;
+      height: 100%;
+    }
+    .estate__desc-wrapper {
+      width: 66.66666%;
+      height: 100%;
+    }
+  }
+  @include respond-to(large) {
+    .estate__desc {
+      max-width: 720px;
+      padding: 0 $gutter--max/1.8;
+    }
+  }
+  @include respond-to('h-large') {
+    .estate__desc {
+      font-size: 24px;
+    }
+  }
+
+}
+// --full
+.estate-section__header--full {
+  .estate__title {
+    color: #FFF;
+    letter-spacing: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    padding-left: 10px;
+    transform: translate(-50%, -50%);
+  }
+  @include respond-to(medium) {
+    .estate__title {
+      letter-spacing: 34px;
+      padding-left: 34px;
+    }
+  }
+}
+
+.estate__title {
+  font-family: $title_b;
+  font-size: 16px;
+  text-transform: uppercase;
+  @include respond-to('h-large') {
+    font-size: 24px;
+  }
+}
+
+// SUBS
+.sub__text-wrapper {
+  font-size: 15px;
+  line-height: 1.1;
+  text-align: center;
+  margin: auto;
+  padding: 0 $gutter;
+  @include respond-to(medium) {
+    font-size: 18px;
+  }
+  @include respond-to('h-large') {
+    font-size: 24px;
+  }
+}
+
+.estate__sub--image {
+  display: flex;
+  flex-direction: column;
+  .sub__text-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+  }
+  .estate__sub__background {
+    height: 50%;
+    width: 100%;
+  }
+  @include respond-to(medium) {
+    flex-direction: row;
+    .estate__sub__background {
+      width: 66.666%;
+      height: 100%;
+    }
+    .sub__text-wrapper {
+      width: 33.333%;
+      height: 100%;
+    }
+  }
+}
+
+.estate__sub--text {
+  display: flex;
+  align-items: center;
+  font-family: $body;
+  font-size: 24px;
+  line-height: 1.16;
+  @include respond-to(medium) {
+    .sub__text-wrapper {
+      max-width: 50%;
+    }
+  }
+}
+
+.sub__text {
+  font-family: $body;
+  max-width: 480px;
+  .number-deco {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    span {
+      display: block;
+    }
+    .number {
+      font-size: 80px;
+      line-height: 1.1;
+    }
+    .text {
+      font-size: 16px;
+    }
+  }
+  @include respond-to('h-large') {
+    .number-deco {
+      .number {
+        font-size: 114px;
+      }
+      .text {
+        font-size: 21px;
+      }
+    }
+  }
+}
+
+// THEMES
+.estate-section--philosophy {
+  color: $blue;
+  .estate-section__header--split {
+    .estate__title-wrapper {
+      background: $blue;
+    }
+    .estate__title {
+      color: #FFF;
+    }
+  }
+  .sub__text-wrapper {
+    background-color: $lightBlue;
+    background-image: url('../images/deco.svg');
+    background-repeat: no-repeat;
+    background-size: auto 80%;
+    background-position: center;
+    color: #fff;
+    width: 100%;
+  }
+  @include respond-to(medium) {
+    .sub__text-wrapper {
+      width: 33.333%;
+    }
+  }
+}
+
+.estate-section--history {
+  .estate-section__header--full {
+    .estate__title {
+      color: #FFF;
+    }
+  }
+  .sub__text-wrapper {
+    color: $brown;
+  }
+}
+
+.estate-section--practices {
+  .estate-section__header--split {
+    .estate__title {
+      color: $egg;
+    }
+    .estate__desc-wrapper {
+      background: $brown;
+      color: #fff;
+    }
+  }
+  .sub__text-wrapper {
+    background: $egg;
+    color: #FFF;
+  }
+}
+
+.estate-section--locations {
+  .estate-section__header--full {
+    .estate__title {
+      color: $blue;
+    }
+  }
+  .sub__text-wrapper {
+    color: $blue;
+  }
+}
+.estate-container {
+  position: relative;
+}
+.estate-navs {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  .wrapper {
+    z-index: 4;
+  }
+  @include respond-to(medium) {
+    position: static;
+  }
+}
+.estate-nav__item {
+  display: block;
+  position: absolute;
+  font-size: 36px;
+  color: $egg;
+  top: 54%;
+  transform: translateY(-50%);
+  z-index: 1;
+  @include respond-to(compact) {
+    font-size: 46px;
+  }
+  @include respond-to(medium) {
+    top: 50%;
+  }
+}
+.estate-nav__item--prev {
+  left: 20px;
+  transition: left 0.2s ease-in-out;
+  @include respond-to(large) {
+    left: 75px;
+  }
+}
+.estate-nav__item--next {
+  right: 20px;
+  transition: right 0.2s ease-in-out;
+  @include respond-to(large) {
+    right: 75px;
+  }
+}
+
+.js-entering {
+  .estate-nav__item--prev {
+    left: 0;
+  }
+  .estate-nav__item--next {
+    right: 0;
+  }
+}

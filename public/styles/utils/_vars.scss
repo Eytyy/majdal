@@ -1,0 +1,48 @@
+/* utils/_variables.scss */
+
+// Fonts Variables
+$title: 'Brandon';
+$title_b: 'Brandon-Bold';
+
+$body: 'Tinos', serif;
+$body_b: 'Tinos-Bold', serif;
+
+// Colors Variables
+$link__color: rgba(88, 75, 97, 1);
+$black: rgba(0, 0, 0, 1);
+$brown: #504644;
+$egg: #B59276;
+$blue: #7C8C9E;
+$lightBlue: #BBC6D1;
+
+// Layout Variables
+$gutter: 2em;
+$gutter--large: 4em;
+$gutter--max: 7.5em;
+
+$grid-columns: 12;
+$grid_gutter: 12em;
+
+$compact-wrapper-width: 97.2em;
+$large-wrapper-width: 126em;
+$full-wrapper-width: 133em;
+$max-wrapper-width: 144em;
+
+// Media Queries variables
+
+// horizontal breakpoints
+$breakpoints: (
+  'small'   : '(min-width: 320px)',
+  'mashi'   : '(min-width: 420px)',
+  'compact' : '(min-width: 568px)',
+  'medium'  : '(min-width: 720px)',
+  'nosnos'  : '(min-width: 920px)',
+  'large'   : '(min-width: 1020px)',
+  'xlarge'  : '(min-width: 1280px)',
+  'xxlarge' : '(min-width: 1440px)',
+  'h-compact': '(min-height: 568px)',
+  'h-medium': '(min-height: 720px)',
+  'h-large': '(min-height: 1020px)',
+  'small-landscape': '(min-width: 320px) and (max-height: 400px), (min-width: 500px) and (max-height: 500px)',
+  'large-landscape': '(min-width: 1020px) and (max-height: 800px)'
+);
