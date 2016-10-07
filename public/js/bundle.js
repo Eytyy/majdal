@@ -29459,11 +29459,13 @@
 	    key: 'retractView',
 	    value: function retractView() {
 	      this.domMap.body.classList.add('js-estate-inner');
+	      console.log('retract');
 	    }
 	  }, {
 	    key: 'expandView',
 	    value: function expandView() {
 	      this.domMap.body.classList.remove('js-estate-inner');
+	      console.log('expand');
 	    }
 	  }, {
 	    key: 'setPageStyle',

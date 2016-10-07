@@ -47,10 +47,12 @@ class Estates extends React.Component {
 
   retractView() {
     this.domMap.body.classList.add('js-estate-inner');
+    console.log('retract');
   }
 
   expandView() {
     this.domMap.body.classList.remove('js-estate-inner');
+    console.log('expand');
   }
 
   setPageStyle() {
