@@ -1,10 +1,10 @@
 {% import "mixins/flash-messages.html" as FM %}
 
 <!doctype html>
-<html class='{{section}}'>
+<html>
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 		<title>{{ title|default("Majdal") }}</title>
@@ -33,7 +33,7 @@
 		{# Add any other template-specific HEAD tags by extending the head block #}
 		{% block head %}{% endblock %}
 	</head>
-	<body>
+	<body class='{{section}}'>
 
 		{# HEADER #}
 		<header class="site-header">
