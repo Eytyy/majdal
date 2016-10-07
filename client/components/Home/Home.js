@@ -60,8 +60,8 @@ class Home extends React.Component {
   render() {
     const options = {
       preventDefault: true,
+      touchAction: 'compute',
       recognizers: {
-        touchAction: 'compute',
         swipe: {
           threshold: 10,
         },

@@ -27216,8 +27216,8 @@
 	    value: function render() {
 	      var options = {
 	        preventDefault: true,
+	        touchAction: 'compute',
 	        recognizers: {
-	          touchAction: 'compute',
 	          swipe: {
 	            threshold: 10
 	          }
