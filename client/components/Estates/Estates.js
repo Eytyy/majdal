@@ -5,6 +5,7 @@ import EstateItem from './EstateItem';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import { debounce } from 'lodash';
+import Hammer from 'react-hammerjs';
 
 class Estates extends React.Component {
 
@@ -23,6 +24,17 @@ class Estates extends React.Component {
 
   onmouse(event) {
     const direction = (event.detail < 0 || event.wheelDelta > 0) ? 'up' : 'down';
+    if (direction === 'up') {
+      if (window.innerWidth > 920) {
+        this.expandView();
+      }
+    } else {
+      this.retractView();
+    }
+  }
+
+  handleSwipe(event) {
+    const direction = (event.deltaY < 0) ? 'up' : 'down';
     if (direction === 'up') {
       if (window.innerWidth > 920) {
         this.expandView();
@@ -100,12 +112,14 @@ class Estates extends React.Component {
         transitionName="estateSlider"
         transitionEnterTimeout={1000}
         transitionLeaveTimeout={1000} >
-        <EstateItem
-          estate={this.state.estate}
-          sub={this.state.subs}
-          nav={this.state.nav}
-          s3Path={this.props.s3Path}
-        />
+        <Hammer onSwipe={this.handleSwipe} direction="DIRECTION_VERTICAL" >
+          <EstateItem
+            estate={this.state.estate}
+            sub={this.state.subs}
+            nav={this.state.nav}
+            s3Path={this.props.s3Path}
+          />
+        </Hammer>
       </ReactCSSTransitionGroup>
     );
   }

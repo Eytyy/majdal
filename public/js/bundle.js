@@ -29398,6 +29398,10 @@
 
 	var _lodash = __webpack_require__(277);
 
+	var _reactHammerjs = __webpack_require__(283);
+
+	var _reactHammerjs2 = _interopRequireDefault(_reactHammerjs);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29430,6 +29434,18 @@
 	    key: 'onmouse',
 	    value: function onmouse(event) {
 	      var direction = event.detail < 0 || event.wheelDelta > 0 ? 'up' : 'down';
+	      if (direction === 'up') {
+	        if (window.innerWidth > 920) {
+	          this.expandView();
+	        }
+	      } else {
+	        this.retractView();
+	      }
+	    }
+	  }, {
+	    key: 'handleSwipe',
+	    value: function handleSwipe(event) {
+	      var direction = event.deltaY < 0 ? 'up' : 'down';
 	      if (direction === 'up') {
 	        if (window.innerWidth > 920) {
 	          this.expandView();
@@ -29525,12 +29541,16 @@
 	          transitionName: 'estateSlider',
 	          transitionEnterTimeout: 1000,
 	          transitionLeaveTimeout: 1000 },
-	        _react2.default.createElement(_EstateItem2.default, {
-	          estate: this.state.estate,
-	          sub: this.state.subs,
-	          nav: this.state.nav,
-	          s3Path: this.props.s3Path
-	        })
+	        _react2.default.createElement(
+	          _reactHammerjs2.default,
+	          { onSwipe: this.handleSwipe, direction: 'DIRECTION_VERTICAL' },
+	          _react2.default.createElement(_EstateItem2.default, {
+	            estate: this.state.estate,
+	            sub: this.state.subs,
+	            nav: this.state.nav,
+	            s3Path: this.props.s3Path
+	          })
+	        )
 	      );
 	    }
 	  }]);
