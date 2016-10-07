@@ -6,8 +6,9 @@ exports = module.exports = function (req, res) {
 	var locals = res.locals;
 
 	// locals.section is used to set the currently selected
+
 	// item in the header navigation.
-	locals.section = 'home';
+	locals.section = req.route.path === '/oils' ? 'oils' : 'home';
   locals.dir = 'https://s3.amazonaws.com/eytyy.com/resources/front-video/';
 
   locals.data = {

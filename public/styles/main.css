@@ -254,7 +254,8 @@ svg {
       margin-top: 20em; } }
 
 .home {
-  overflow: hidden; }
+  overflow: hidden;
+  height: 100vh; }
 
 /* layout/_nav.scss */
 .nav--mobile {
