@@ -35,6 +35,7 @@ class Estates extends React.Component {
   }
 
   handleSwipe(event) {
+    console.log(event);
     const direction = (event.deltaY < 0) ? 'up' : 'down';
     if (direction === 'up') {
       if (window.innerWidth > 920) {
