@@ -27224,7 +27224,7 @@
 	      };
 	      return _react2.default.createElement(
 	        _reactHammerjs2.default,
-	        { onSwipe: this.handleSwipe, options: options, direction: true },
+	        { onSwipe: this.handleSwipe },
 	        _react2.default.createElement(
 	          'section',
 	          { className: 'section-home-wrapper' },

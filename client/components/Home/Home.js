@@ -67,7 +67,7 @@ class Home extends React.Component {
       },
     };
     return (
-      <Hammer onSwipe={this.handleSwipe} options={options} direction>
+      <Hammer onSwipe={this.handleSwipe} >
         <section className="section-home-wrapper">
           <Video active={this.state.active} />
           <Oils />
