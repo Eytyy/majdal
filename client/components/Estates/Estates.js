@@ -111,7 +111,7 @@ class Estates extends React.Component {
 
   render() {
     return (
-      <Hammer onSwipe={handleSwipe} direction="DIRECTION_VERTICAL" >
+      <Hammer onSwipe={this.handleSwipe} direction="DIRECTION_VERTICAL" >
         <EstateItem
           estate={this.state.estate}
           sub={this.state.subs}

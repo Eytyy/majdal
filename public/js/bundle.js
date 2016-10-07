@@ -49075,7 +49075,7 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        _reactHammerjs2.default,
-	        { onSwipe: handleSwipe, direction: 'DIRECTION_VERTICAL' },
+	        { onSwipe: this.handleSwipe, direction: 'DIRECTION_VERTICAL' },
 	        _react2.default.createElement(_EstateItem2.default, {
 	          estate: this.state.estate,
 	          sub: this.state.subs,
