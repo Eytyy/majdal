@@ -27215,7 +27215,6 @@
 	    key: 'render',
 	    value: function render() {
 	      var options = {
-	        preventDefault: true,
 	        touchAction: 'compute',
 	        recognizers: {
 	          swipe: {
