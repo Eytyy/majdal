@@ -27214,14 +27214,6 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var options = {
-	        touchAction: 'compute',
-	        recognizers: {
-	          swipe: {
-	            threshold: 10
-	          }
-	        }
-	      };
 	      return _react2.default.createElement(
 	        _reactHammerjs2.default,
 	        { onSwipe: this.handleSwipe, direction: 'DIRECTION_VERTICAL' },

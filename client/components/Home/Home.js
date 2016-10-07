@@ -58,14 +58,6 @@ class Home extends React.Component {
   }
 
   render() {
-    const options = {
-      touchAction: 'compute',
-      recognizers: {
-        swipe: {
-          threshold: 10,
-        },
-      },
-    };
     return (
       <Hammer onSwipe={this.handleSwipe} direction="DIRECTION_VERTICAL" >
         <section className="section-home-wrapper">
