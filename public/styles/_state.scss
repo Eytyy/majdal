@@ -1,5 +1,6 @@
 .js-menu-active {
   overflow: hidden;
+  height: 100vh;
 }
 
 .js-nav-bar--active {
@@ -23,6 +24,7 @@
     padding: 0 20px 60px;
     height: 100%;
     overflow: scroll;
+    -webkit-overflow-scrolling: touch;
   }
   .nav--main {
     display: block;

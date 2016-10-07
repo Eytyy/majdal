@@ -69,6 +69,8 @@ svg {
 .nav--mobile {
   position: absolute;
   right: 20px;
+  z-index: 3;
+  padding: 10px;
   @include respond-to(nosnos) {
     display: none;
   }
