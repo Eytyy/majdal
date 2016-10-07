@@ -59,19 +59,16 @@ class Home extends React.Component {
 
   render() {
     const options = {
+      preventDefault: true,
       recognizers: {
-        swipeup: {
-            time: 600,
-            threshold: 100
+        swipe: {
+            direction: DIRECTION_ALL,
+            threshold: 10,
         },
-        swipeup: {
-            time: 600,
-            threshold: 100
-        }
       }
     };
     return (
-      <Hammer onSwipe={this.handleSwipe}>
+      <Hammer onSwipe={this.handleSwipe} options={options}>
         <section className="section-home-wrapper">
           <Video active={this.state.active} />
           <Oils />
