@@ -1,13 +1,14 @@
 .section__skipLink {
   @extend %centeredAbsElementH;
   font-size: 36px;
-  bottom: 5vh;
+  bottom: 13vh;
   z-index: 2;
   color: #FFF;
   display: block;
   transition: transform 0.5s linear;
   @include respond-to(medium) {
     font-size: 46px;
+    bottom: 5vh;
   }
 }
 .section__skipLink--estates {

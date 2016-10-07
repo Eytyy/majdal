@@ -149,7 +149,9 @@ svg {
 
 .nav--mobile {
   position: absolute;
-  right: 20px; }
+  right: 20px;
+  z-index: 3;
+  padding: 10px; }
   @media (min-width: 920px) {
     .nav--mobile {
       display: none; } }
@@ -253,10 +255,6 @@ svg {
     .contact main {
       margin-top: 20em; } }
 
-.home,
-.oils {
-  overflow: hidden; }
-
 /* layout/_nav.scss */
 .nav--mobile {
   border: 0;
@@ -350,14 +348,15 @@ svg {
 
 .section__skipLink {
   font-size: 36px;
-  bottom: 5vh;
+  bottom: 13vh;
   z-index: 2;
   color: #FFF;
   display: block;
   transition: transform 0.5s linear; }
   @media (min-width: 720px) {
     .section__skipLink {
-      font-size: 46px; } }
+      font-size: 46px;
+      bottom: 5vh; } }
 
 .section__skipLink--estates {
   border-bottom: 0;
@@ -979,7 +978,8 @@ button {
   padding: 0; }
 
 .js-menu-active {
-  overflow: hidden; }
+  overflow: hidden;
+  height: 100vh; }
 
 .js-nav-bar--active {
   display: block;
@@ -1001,7 +1001,8 @@ button {
     display: block;
     padding: 0 20px 60px;
     height: 100%;
-    overflow: scroll; }
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch; }
   .js-nav-bar--active .nav--main {
     display: block; }
   .js-nav-bar--active .nav--sub {
