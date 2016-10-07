@@ -62,7 +62,7 @@ class Home extends React.Component {
       preventDefault: true,
       recognizers: {
         swipe: {
-            direction: DIRECTION_ALL,
+            direction: 'DIRECTION_ALL',
             threshold: 10,
         },
       }
