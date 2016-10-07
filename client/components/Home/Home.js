@@ -19,9 +19,13 @@ class Home extends React.Component {
     this.setState({
       active: direction === 'down',
     });
+    setTimeout(() => {
+      document.querySelector('html').classList.remove('scrolling');
+    }, 1000);
   }
 
   handleSwipe(event) {
+    console.log('yo');
     console.log(event);
   }
 
@@ -48,11 +52,20 @@ class Home extends React.Component {
     this.init();
     this.updateActiveState();
   }
+
   componentWillReceiveProps(nextProps) {
     this.updateActiveState(nextProps);
   }
 
   render() {
+    const options = {
+      recognizers: {
+        swipe: {
+            time: 600,
+            threshold: 100
+        }
+      }
+    };
     return (
       <Hammer onSwipe={this.handleSwipe}>
         <section className="section-home-wrapper">

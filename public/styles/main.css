@@ -255,12 +255,7 @@ svg {
 
 .home,
 .oils {
-  overflow: hidden;
-  height: 100%; }
-  .home body,
-  .oils body {
-    overflow: hidden;
-    height: 100%; }
+  overflow: hidden; }
 
 /* layout/_nav.scss */
 .nav--mobile {

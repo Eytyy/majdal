@@ -27172,10 +27172,14 @@
 	      this.setState({
 	        active: direction === 'down'
 	      });
+	      setTimeout(function () {
+	        document.querySelector('html').classList.remove('scrolling');
+	      }, 1000);
 	    }
 	  }, {
 	    key: 'handleSwipe',
 	    value: function handleSwipe(event) {
+	      console.log('yo');
 	      console.log(event);
 	    }
 	  }, {
@@ -27210,6 +27214,14 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var options = {
+	        recognizers: {
+	          swipe: {
+	            time: 600,
+	            threshold: 100
+	          }
+	        }
+	      };
 	      return _react2.default.createElement(
 	        _reactHammerjs2.default,
 	        { onSwipe: this.handleSwipe },
