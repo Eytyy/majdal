@@ -23,7 +23,7 @@ class Home extends React.Component {
   }
 
   handleSwipe(event) {
-    const direction = (event.deltaX < 0) ? 'up' : 'down';
+    const direction = (event.deltaY < 0) ? 'up' : 'down';
     this.setState({
       active: direction === 'up',
     });

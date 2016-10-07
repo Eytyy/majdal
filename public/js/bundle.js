@@ -27177,7 +27177,7 @@
 	  }, {
 	    key: 'handleSwipe',
 	    value: function handleSwipe(event) {
-	      var direction = event.deltaX < 0 ? 'up' : 'down';
+	      var direction = event.deltaY < 0 ? 'up' : 'down';
 	      this.setState({
 	        active: direction === 'up'
 	      });
