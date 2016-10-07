@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import Oils from './Oils';
 import Video from './Video';
 import { debounce } from 'lodash';
+import Hammer from 'react-hammerjs';
 
 class Home extends React.Component {
   constructor() {
@@ -20,16 +21,13 @@ class Home extends React.Component {
     });
   }
 
-  ontouch(event) {
+  handleSwipe(event) {
     console.log(event);
   }
 
   init() {
     document.getElementById('app').addEventListener('wheel', debounce(
       this.onmouse, 200, { leading: true, trailing: false })
-    );
-    document.getElementById('app').addEventListener('touchmove', debounce(
-      this.ontouch, 200, { leading: true, trailing: false })
     );
   }
 
@@ -56,10 +54,12 @@ class Home extends React.Component {
 
   render() {
     return (
-      <section className="section-home-wrapper">
-        <Video active={this.state.active} />
-        <Oils />
-      </section>
+      <Hammer onSwipe={this.handleSwipe}>
+        <section className="section-home-wrapper">
+          <Video active={this.state.active} />
+          <Oils />
+        </section>
+      </Hammer>
     );
   }
 }

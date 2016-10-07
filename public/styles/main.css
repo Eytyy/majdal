@@ -253,9 +253,14 @@ svg {
     .contact main {
       margin-top: 20em; } }
 
-.home {
+.home,
+.oils {
   overflow: hidden;
-  height: 100vh; }
+  height: 100%; }
+  .home body,
+  .oils body {
+    overflow: hidden;
+    height: 100%; }
 
 /* layout/_nav.scss */
 .nav--mobile {
