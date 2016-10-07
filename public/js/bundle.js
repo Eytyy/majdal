@@ -60,19 +60,19 @@
 
 	var _Home2 = _interopRequireDefault(_Home);
 
-	var _OlivesCategories = __webpack_require__(262);
+	var _OlivesCategories = __webpack_require__(266);
 
 	var _OlivesCategories2 = _interopRequireDefault(_OlivesCategories);
 
-	var _OlivesList = __webpack_require__(263);
+	var _OlivesList = __webpack_require__(267);
 
 	var _OlivesList2 = _interopRequireDefault(_OlivesList);
 
-	var _Estates = __webpack_require__(265);
+	var _Estates = __webpack_require__(269);
 
 	var _Estates2 = _interopRequireDefault(_Estates);
 
-	var _EstateItem = __webpack_require__(266);
+	var _EstateItem = __webpack_require__(270);
 
 	var _EstateItem2 = _interopRequireDefault(_EstateItem);
 
@@ -27135,9 +27135,9 @@
 
 	var _Video2 = _interopRequireDefault(_Video);
 
-	var _lodash = __webpack_require__(277);
+	var _lodash = __webpack_require__(262);
 
-	var _reactHammerjs = __webpack_require__(283);
+	var _reactHammerjs = __webpack_require__(264);
 
 	var _reactHammerjs2 = _interopRequireDefault(_reactHammerjs);
 
@@ -29091,834 +29091,6 @@
 
 /***/ },
 /* 262 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _helpers = __webpack_require__(237);
-
-	var _reactRouter = __webpack_require__(172);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var OlivesCategories = function (_React$Component) {
-	  _inherits(OlivesCategories, _React$Component);
-
-	  function OlivesCategories() {
-	    _classCallCheck(this, OlivesCategories);
-
-	    var _this = _possibleConstructorReturn(this, (OlivesCategories.__proto__ || Object.getPrototypeOf(OlivesCategories)).call(this));
-
-	    _this.state = {
-	      data: []
-	    };
-	    return _this;
-	  }
-
-	  _createClass(OlivesCategories, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var _this2 = this;
-
-	      (0, _helpers.getOlivesCategories)().then(function (response) {
-	        _this2.setState({
-	          data: response.data.olives
-	        });
-	      }).catch(function (err) {
-	        console.log(err);
-	      });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _this3 = this;
-
-	      var olivesCategories = this.state.data.map(function (category, index) {
-	        return _react2.default.createElement(
-	          'li',
-	          { className: 'olives-list__item', key: index },
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: '/olives/' + category.name },
-	            _react2.default.createElement('img', { src: _this3.props.s3Path + category.image.filename, alt: category.name })
-	          )
-	        );
-	      });
-	      return _react2.default.createElement(
-	        'ul',
-	        { className: 'olives-list' },
-	        olivesCategories
-	      );
-	    }
-	  }]);
-
-	  return OlivesCategories;
-	}(_react2.default.Component);
-
-	OlivesCategories.defaultProps = {
-	  s3Path: 'https://s3.amazonaws.com/eytyy.com/olives/'
-	};
-
-	exports.default = OlivesCategories;
-
-/***/ },
-/* 263 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _helpers = __webpack_require__(237);
-
-	var _OliveItem = __webpack_require__(264);
-
-	var _OliveItem2 = _interopRequireDefault(_OliveItem);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var OlivesList = function (_React$Component) {
-	  _inherits(OlivesList, _React$Component);
-
-	  function OlivesList() {
-	    _classCallCheck(this, OlivesList);
-
-	    var _this = _possibleConstructorReturn(this, (OlivesList.__proto__ || Object.getPrototypeOf(OlivesList)).call(this));
-
-	    _this.state = {
-	      data: []
-	    };
-	    _this.domMap = {
-	      body: document.querySelector('body')
-	    };
-	    return _this;
-	  }
-
-	  _createClass(OlivesList, [{
-	    key: 'initSlider',
-	    value: function initSlider() {
-	      $('.olives-slider').slick({
-	        mobileFirst: true,
-	        slidesToShow: 1,
-	        nextArrow: $('.nav--next'),
-	        prevArrow: $('.nav--back'),
-	        speed: 400,
-	        responsive: [{
-	          breakpoint: 720,
-	          settings: {
-	            slidesToShow: 3,
-	            infinite: true
-	          }
-	        }, {
-	          breakpoint: 1280,
-	          settings: {
-	            slidesToShow: 4,
-	            infinite: true
-	          }
-	        }]
-	      });
-	    }
-	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var _this2 = this;
-
-	      if (!this.domMap.body.classList.contains('olives-inner')) {
-	        this.domMap.body.classList.add('olives-inner');
-	      }
-
-	      (0, _helpers.getOlivesCategories)().then(function (categories) {
-	        var category = categories.data.olives.find(function (cat) {
-	          return cat.name === _this2.props.params.id;
-	        })._id;
-	        (0, _helpers.getOlives)(category).then(function (response) {
-	          _this2.setState({
-	            data: response.data.olives
-	          });
-	          _this2.initSlider();
-	        }).catch(function (err) {
-	          console.log(err);
-	        });
-	      });
-	    }
-	  }, {
-	    key: 'componentWillUnmount',
-	    value: function componentWillUnmount() {
-	      if (this.domMap.body.classList.contains('olives-inner')) {
-	        this.domMap.body.classList.remove('olives-inner');
-	      }
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _this3 = this;
-
-	      var olives = this.state.data.map(function (olive, index) {
-	        return _react2.default.createElement(_OliveItem2.default, { item: olive, s3Path: _this3.props.s3Path, key: index });
-	      });
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'button',
-	          { className: 'olive-slider__nav nav--back', role: 'button' },
-	          _react2.default.createElement('i', { className: 'fa fa-angle-left' })
-	        ),
-	        _react2.default.createElement(
-	          'button',
-	          { className: 'olive-slider__nav nav--next', role: 'button' },
-	          _react2.default.createElement('i', { className: 'fa fa-angle-right' })
-	        ),
-	        _react2.default.createElement(
-	          'ul',
-	          { className: 'olives-lists olives-slider slider' },
-	          olives
-	        )
-	      );
-	    }
-	  }]);
-
-	  return OlivesList;
-	}(_react2.default.Component);
-
-	OlivesList.defaultProps = {
-	  s3Path: 'https://s3.amazonaws.com/eytyy.com/olives/'
-	};
-
-	exports.default = OlivesList;
-
-/***/ },
-/* 264 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var OliveItem = function OliveItem(props) {
-
-	  return _react2.default.createElement(
-	    "li",
-	    { className: "olives-list__item" },
-	    _react2.default.createElement(
-	      "div",
-	      { className: "olive__img" },
-	      _react2.default.createElement("img", { "data-lazy": props.s3Path + props.item.image.filename })
-	    ),
-	    _react2.default.createElement(
-	      "div",
-	      { className: "olive__info" },
-	      _react2.default.createElement(
-	        "h2",
-	        { className: "olive__name" },
-	        props.item.title
-	      ),
-	      _react2.default.createElement(
-	        "p",
-	        { className: "olive__desc" },
-	        props.item.description
-	      )
-	    )
-	  );
-	};
-
-	exports.default = OliveItem;
-
-/***/ },
-/* 265 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _helpers = __webpack_require__(237);
-
-	var _EstateItem = __webpack_require__(266);
-
-	var _EstateItem2 = _interopRequireDefault(_EstateItem);
-
-	var _lodash = __webpack_require__(277);
-
-	var _reactHammerjs = __webpack_require__(283);
-
-	var _reactHammerjs2 = _interopRequireDefault(_reactHammerjs);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Estates = function (_React$Component) {
-	  _inherits(Estates, _React$Component);
-
-	  function Estates() {
-	    _classCallCheck(this, Estates);
-
-	    var _this = _possibleConstructorReturn(this, (Estates.__proto__ || Object.getPrototypeOf(Estates)).call(this));
-
-	    _this.state = {
-	      estate: [],
-	      subs: [],
-	      nav: []
-	    };
-	    _this.domMap = {
-	      body: document.querySelector('body')
-	    };
-	    _this.onmouse = _this.onmouse.bind(_this);
-	    _this.handleSwipe = _this.handleSwipe.bind(_this);
-	    return _this;
-	  }
-
-	  _createClass(Estates, [{
-	    key: 'onmouse',
-	    value: function onmouse(event) {
-	      var direction = event.detail < 0 || event.wheelDelta > 0 ? 'up' : 'down';
-	      if (direction === 'up') {
-	        if (window.innerWidth > 920) {
-	          this.expandView();
-	        }
-	      } else {
-	        this.retractView();
-	      }
-	    }
-	  }, {
-	    key: 'handleSwipe',
-	    value: function handleSwipe(event) {
-	      console.log(event);
-	      var direction = event.deltaY < 0 ? 'up' : 'down';
-	      if (direction === 'up') {
-	        if (window.innerWidth > 920) {
-	          this.expandView();
-	        }
-	      } else {
-	        this.retractView();
-	      }
-	    }
-	  }, {
-	    key: 'retractView',
-	    value: function retractView() {
-	      this.domMap.body.classList.add('js-estate-inner');
-	      console.log('retract');
-	    }
-	  }, {
-	    key: 'expandView',
-	    value: function expandView() {
-	      this.domMap.body.classList.remove('js-estate-inner');
-	      console.log('expand');
-	    }
-	  }, {
-	    key: 'setPageStyle',
-	    value: function setPageStyle() {
-	      if (!this.props.params.id) return;
-	      this.retractView();
-	    }
-	  }, {
-	    key: 'resetPageStyle',
-	    value: function resetPageStyle() {
-	      this.expandView();
-	    }
-	  }, {
-	    key: 'initNav',
-	    value: function initNav() {
-	      var _this2 = this;
-
-	      (0, _helpers.getAdjacentEstates)(this.state.estate.order).then(function (response) {
-	        _this2.setState({
-	          nav: response.data.data
-	        });
-	      }).catch(function (err) {
-	        console.log(err);
-	      });
-	    }
-	  }, {
-	    key: 'init',
-	    value: function init(pageId) {
-	      var _this3 = this;
-
-	      var id = pageId || this.props.params.id;
-	      (0, _helpers.getEstates)(id).then(function (response) {
-	        _this3.setState({
-	          estate: response.estate.data[0],
-	          subs: response.subs.data
-	        });
-	        _this3.setPageStyle();
-	        _this3.initNav();
-	      }).catch(function (err) {
-	        console.log(err);
-	      });
-	      document.getElementById('main').addEventListener('wheel', (0, _lodash.debounce)(this.onmouse, 200, { leading: true, trailing: false }));
-	    }
-	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var _this4 = this;
-
-	      this.init();
-	      this.domMap.body.classList.add('js-entering');
-	      setTimeout(function () {
-	        _this4.domMap.body.classList.remove('js-entering');
-	      }, 600);
-	    }
-	  }, {
-	    key: 'componentWillUnmount',
-	    value: function componentWillUnmount() {
-	      this.resetPageStyle();
-	    }
-	  }, {
-	    key: 'componentWillReceiveProps',
-	    value: function componentWillReceiveProps(nextProps) {
-	      this.init(nextProps.params.id);
-	    }
-	  }, {
-	    key: 'rawMarkup',
-	    value: function rawMarkup(markup) {
-	      return { __html: markup };
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        _reactHammerjs2.default,
-	        { onSwipe: this.handleSwipe, direction: 'DIRECTION_VERTICAL' },
-	        _react2.default.createElement(_EstateItem2.default, {
-	          estate: this.state.estate,
-	          sub: this.state.subs,
-	          nav: this.state.nav,
-	          s3Path: this.props.s3Path
-	        })
-	      );
-	    }
-	  }]);
-
-	  return Estates;
-	}(_react2.default.Component);
-
-	Estates.defaultProps = {
-	  s3Path: 'https://s3.amazonaws.com/eytyy.com/estates/'
-	};
-
-	exports.default = Estates;
-
-/***/ },
-/* 266 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _EstateItemHeader = __webpack_require__(267);
-
-	var _EstateItemHeader2 = _interopRequireDefault(_EstateItemHeader);
-
-	var _EstateItemBody = __webpack_require__(269);
-
-	var _EstateItemBody2 = _interopRequireDefault(_EstateItemBody);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var EstateItem = function (_React$Component) {
-	  _inherits(EstateItem, _React$Component);
-
-	  function EstateItem(props) {
-	    _classCallCheck(this, EstateItem);
-
-	    return _possibleConstructorReturn(this, (EstateItem.__proto__ || Object.getPrototypeOf(EstateItem)).call(this, props));
-	  }
-
-	  _createClass(EstateItem, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'section',
-	        { key: this.props.estate._id, className: 'estate estate-section estate-section--' + this.props.estate.slug },
-	        _react2.default.createElement(_EstateItemHeader2.default, { estate: this.props.estate, s3Path: this.props.s3Path, nav: this.props.nav }),
-	        _react2.default.createElement(_EstateItemBody2.default, { parent: this.props.estate._id, data: this.props.sub, s3Path: this.props.s3Path })
-	      );
-	    }
-	  }]);
-
-	  return EstateItem;
-	}(_react2.default.Component);
-
-	exports.default = EstateItem;
-
-/***/ },
-/* 267 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(172);
-
-	var _EstateNav = __webpack_require__(268);
-
-	var _EstateNav2 = _interopRequireDefault(_EstateNav);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	// Header With 2 Cols
-	var EstateItemHeaderSplit = function EstateItemHeaderSplit(props) {
-	  return _react2.default.createElement(
-	    'header',
-	    { className: 'estate-section__header estate-section__header--split' },
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'estate__title-wrapper' },
-	      _react2.default.createElement(
-	        'h1',
-	        { className: 'estate__title' },
-	        props.item.title
-	      )
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'estate__desc-wrapper' },
-	      _react2.default.createElement(
-	        'p',
-	        { className: 'estate__desc' },
-	        props.item['header description']
-	      )
-	    )
-	  );
-	};
-
-	// Header With Full Image
-	var EstateItemHeaderFull = function EstateItemHeaderFull(props) {
-	  var styles = {
-	    backgroundImage: props.item['header image'] && 'url(\'' + props.s3Path + props.item["header image"].filename + '\')'
-	  };
-	  return _react2.default.createElement(
-	    'header',
-	    { className: 'estate-section__header estate-section__header--full' },
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'wrapper' },
-	      _react2.default.createElement(
-	        'h1',
-	        { className: 'estate__title' },
-	        props.item.title
-	      )
-	    ),
-	    _react2.default.createElement('div', { className: 'estate__background', style: styles })
-	  );
-	};
-
-	var EstateItemHeader = function (_React$Component) {
-	  _inherits(EstateItemHeader, _React$Component);
-
-	  function EstateItemHeader(props) {
-	    _classCallCheck(this, EstateItemHeader);
-
-	    return _possibleConstructorReturn(this, (EstateItemHeader.__proto__ || Object.getPrototypeOf(EstateItemHeader)).call(this, props));
-	  }
-
-	  _createClass(EstateItemHeader, [{
-	    key: 'markup',
-	    value: function markup() {
-	      if (this.props.estate['header template'] !== 'Split') {
-	        return _react2.default.createElement(EstateItemHeaderFull, { item: this.props.estate, s3Path: this.props.s3Path });
-	      }
-	      return _react2.default.createElement(EstateItemHeaderSplit, { item: this.props.estate, s3Path: this.props.s3Path });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'estate-section__header__inner' },
-	        _react2.default.createElement(_EstateNav2.default, { nav: this.props.nav }),
-	        this.markup()
-	      );
-	    }
-	  }]);
-
-	  return EstateItemHeader;
-	}(_react2.default.Component);
-
-	exports.default = EstateItemHeader;
-
-/***/ },
-/* 268 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(172);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var EstateNav = function (_React$Component) {
-	  _inherits(EstateNav, _React$Component);
-
-	  function EstateNav(props) {
-	    _classCallCheck(this, EstateNav);
-
-	    return _possibleConstructorReturn(this, (EstateNav.__proto__ || Object.getPrototypeOf(EstateNav)).call(this, props));
-	  }
-
-	  _createClass(EstateNav, [{
-	    key: 'markup',
-	    value: function markup() {
-	      var len = this.props.nav.length;
-	      if (len) {
-	        if (len === 1) {
-	          var item = this.props.nav[0];
-	          if (item.order === 2) {
-	            return _react2.default.createElement(
-	              _reactRouter.Link,
-	              { className: 'estate-nav__item estate-nav__item--next', to: '/estate/' + item.slug },
-	              _react2.default.createElement('i', { className: 'fa fa-angle-right' })
-	            );
-	          }
-	          return _react2.default.createElement(
-	            _reactRouter.Link,
-	            { className: 'estate-nav__item estate-nav__item--prev', to: '/estate/' + item.slug },
-	            _react2.default.createElement('i', { className: 'fa fa-angle-left' })
-	          );
-	        }
-	        var back = this.props.nav[0];
-	        var next = this.props.nav[1];
-	        return _react2.default.createElement(
-	          'div',
-	          { className: 'estateNav-wrapper' },
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { className: 'estate-nav__item estate-nav__item--prev', to: '/estate/' + back.slug },
-	            _react2.default.createElement('i', { className: 'fa fa-angle-left' })
-	          ),
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { className: 'estate-nav__item estate-nav__item--next', to: '/estate/' + next.slug },
-	            _react2.default.createElement('i', { className: 'fa fa-angle-right' })
-	          )
-	        );
-	      }
-	    }
-	  }, {
-	    key: 'init',
-	    value: function init() {}
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'nav',
-	        { className: 'estate-navs' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'wrapper' },
-	          this.markup()
-	        )
-	      );
-	    }
-	  }]);
-
-	  return EstateNav;
-	}(_react2.default.Component);
-
-	exports.default = EstateNav;
-
-/***/ },
-/* 269 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var rawMarkup = function rawMarkup(markup) {
-	  return { __html: markup };
-	};
-
-	var EstateItemBodyImage = function EstateItemBodyImage(props) {
-	  var styles = {
-	    backgroundImage: props.item.image && "url('" + props.s3Path + props.item.image.filename + "')"
-	  };
-	  return _react2.default.createElement(
-	    "section",
-	    { className: "estate__sub estate__sub--image" },
-	    _react2.default.createElement("div", { className: "estate__sub__background", style: styles }),
-	    _react2.default.createElement(
-	      "div",
-	      { className: "sub__text-wrapper" },
-	      _react2.default.createElement("h2", { className: "sub__text", dangerouslySetInnerHTML: rawMarkup(props.item.text) })
-	    )
-	  );
-	};
-
-	var EstateItemBodyDefault = function EstateItemBodyDefault(props) {
-	  return _react2.default.createElement(
-	    "section",
-	    { className: "estate__sub estate__sub--text" },
-	    _react2.default.createElement(
-	      "div",
-	      { className: "sub__text-wrapper" },
-	      _react2.default.createElement("p", { className: "sub__text", dangerouslySetInnerHTML: rawMarkup(props.item.text) })
-	    )
-	  );
-	};
-
-	var EstateItemBody = function (_React$Component) {
-	  _inherits(EstateItemBody, _React$Component);
-
-	  function EstateItemBody(props) {
-	    _classCallCheck(this, EstateItemBody);
-
-	    return _possibleConstructorReturn(this, (EstateItemBody.__proto__ || Object.getPrototypeOf(EstateItemBody)).call(this, props));
-	  }
-
-	  _createClass(EstateItemBody, [{
-	    key: "markup",
-	    value: function markup() {
-	      var _this2 = this;
-
-	      var item = this.props.data.find(function (x) {
-	        return x.estate === _this2.props.parent;
-	      });
-	      if (item) {
-	        if (item.template === 'Image') {
-	          return _react2.default.createElement(EstateItemBodyImage, { item: item, s3Path: this.props.s3Path });
-	        }
-	        return _react2.default.createElement(EstateItemBodyDefault, { item: item });
-	      }
-	    }
-	  }, {
-	    key: "render",
-	    value: function render() {
-	      return _react2.default.createElement(
-	        "div",
-	        { className: "estate-section__body__inner" },
-	        this.markup()
-	      );
-	    }
-	  }]);
-
-	  return EstateItemBody;
-	}(_react2.default.Component);
-
-	exports.default = EstateItemBody;
-
-/***/ },
-/* 270 */,
-/* 271 */,
-/* 272 */,
-/* 273 */,
-/* 274 */,
-/* 275 */,
-/* 276 */,
-/* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -46655,10 +45827,10 @@
 	  }
 	}.call(this));
 
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(278)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(263)(module)))
 
 /***/ },
-/* 278 */
+/* 263 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -46674,11 +45846,7 @@
 
 
 /***/ },
-/* 279 */,
-/* 280 */,
-/* 281 */,
-/* 282 */,
-/* 283 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -46686,7 +45854,7 @@
 
 	// require('hammerjs') when in a browser. This is safe because Hammer is only
 	// invoked in componentDidMount, which is not executed on the server.
-	var Hammer = (typeof window !== 'undefined') ? __webpack_require__(284) : undefined;
+	var Hammer = (typeof window !== 'undefined') ? __webpack_require__(265) : undefined;
 
 	var privateProps = {
 		children: true,
@@ -46819,7 +45987,7 @@
 
 
 /***/ },
-/* 284 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*! Hammer.JS - v2.0.7 - 2016-04-22
@@ -49466,6 +48634,827 @@
 
 	})(window, document, 'Hammer');
 
+
+/***/ },
+/* 266 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _helpers = __webpack_require__(237);
+
+	var _reactRouter = __webpack_require__(172);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var OlivesCategories = function (_React$Component) {
+	  _inherits(OlivesCategories, _React$Component);
+
+	  function OlivesCategories() {
+	    _classCallCheck(this, OlivesCategories);
+
+	    var _this = _possibleConstructorReturn(this, (OlivesCategories.__proto__ || Object.getPrototypeOf(OlivesCategories)).call(this));
+
+	    _this.state = {
+	      data: []
+	    };
+	    return _this;
+	  }
+
+	  _createClass(OlivesCategories, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this2 = this;
+
+	      (0, _helpers.getOlivesCategories)().then(function (response) {
+	        _this2.setState({
+	          data: response.data.olives
+	        });
+	      }).catch(function (err) {
+	        console.log(err);
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this3 = this;
+
+	      var olivesCategories = this.state.data.map(function (category, index) {
+	        return _react2.default.createElement(
+	          'li',
+	          { className: 'olives-list__item', key: index },
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/olives/' + category.name },
+	            _react2.default.createElement('img', { src: _this3.props.s3Path + category.image.filename, alt: category.name })
+	          )
+	        );
+	      });
+	      return _react2.default.createElement(
+	        'ul',
+	        { className: 'olives-list' },
+	        olivesCategories
+	      );
+	    }
+	  }]);
+
+	  return OlivesCategories;
+	}(_react2.default.Component);
+
+	OlivesCategories.defaultProps = {
+	  s3Path: 'https://s3.amazonaws.com/eytyy.com/olives/'
+	};
+
+	exports.default = OlivesCategories;
+
+/***/ },
+/* 267 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _helpers = __webpack_require__(237);
+
+	var _OliveItem = __webpack_require__(268);
+
+	var _OliveItem2 = _interopRequireDefault(_OliveItem);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var OlivesList = function (_React$Component) {
+	  _inherits(OlivesList, _React$Component);
+
+	  function OlivesList() {
+	    _classCallCheck(this, OlivesList);
+
+	    var _this = _possibleConstructorReturn(this, (OlivesList.__proto__ || Object.getPrototypeOf(OlivesList)).call(this));
+
+	    _this.state = {
+	      data: []
+	    };
+	    _this.domMap = {
+	      body: document.querySelector('body')
+	    };
+	    return _this;
+	  }
+
+	  _createClass(OlivesList, [{
+	    key: 'initSlider',
+	    value: function initSlider() {
+	      $('.olives-slider').slick({
+	        mobileFirst: true,
+	        slidesToShow: 1,
+	        nextArrow: $('.nav--next'),
+	        prevArrow: $('.nav--back'),
+	        speed: 400,
+	        responsive: [{
+	          breakpoint: 720,
+	          settings: {
+	            slidesToShow: 3,
+	            infinite: true
+	          }
+	        }, {
+	          breakpoint: 1280,
+	          settings: {
+	            slidesToShow: 4,
+	            infinite: true
+	          }
+	        }]
+	      });
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this2 = this;
+
+	      if (!this.domMap.body.classList.contains('olives-inner')) {
+	        this.domMap.body.classList.add('olives-inner');
+	      }
+
+	      (0, _helpers.getOlivesCategories)().then(function (categories) {
+	        var category = categories.data.olives.find(function (cat) {
+	          return cat.name === _this2.props.params.id;
+	        })._id;
+	        (0, _helpers.getOlives)(category).then(function (response) {
+	          _this2.setState({
+	            data: response.data.olives
+	          });
+	          _this2.initSlider();
+	        }).catch(function (err) {
+	          console.log(err);
+	        });
+	      });
+	    }
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      if (this.domMap.body.classList.contains('olives-inner')) {
+	        this.domMap.body.classList.remove('olives-inner');
+	      }
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this3 = this;
+
+	      var olives = this.state.data.map(function (olive, index) {
+	        return _react2.default.createElement(_OliveItem2.default, { item: olive, s3Path: _this3.props.s3Path, key: index });
+	      });
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'button',
+	          { className: 'olive-slider__nav nav--back', role: 'button' },
+	          _react2.default.createElement('i', { className: 'fa fa-angle-left' })
+	        ),
+	        _react2.default.createElement(
+	          'button',
+	          { className: 'olive-slider__nav nav--next', role: 'button' },
+	          _react2.default.createElement('i', { className: 'fa fa-angle-right' })
+	        ),
+	        _react2.default.createElement(
+	          'ul',
+	          { className: 'olives-lists olives-slider slider' },
+	          olives
+	        )
+	      );
+	    }
+	  }]);
+
+	  return OlivesList;
+	}(_react2.default.Component);
+
+	OlivesList.defaultProps = {
+	  s3Path: 'https://s3.amazonaws.com/eytyy.com/olives/'
+	};
+
+	exports.default = OlivesList;
+
+/***/ },
+/* 268 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var OliveItem = function OliveItem(props) {
+
+	  return _react2.default.createElement(
+	    "li",
+	    { className: "olives-list__item" },
+	    _react2.default.createElement(
+	      "div",
+	      { className: "olive__img" },
+	      _react2.default.createElement("img", { "data-lazy": props.s3Path + props.item.image.filename })
+	    ),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "olive__info" },
+	      _react2.default.createElement(
+	        "h2",
+	        { className: "olive__name" },
+	        props.item.title
+	      ),
+	      _react2.default.createElement(
+	        "p",
+	        { className: "olive__desc" },
+	        props.item.description
+	      )
+	    )
+	  );
+	};
+
+	exports.default = OliveItem;
+
+/***/ },
+/* 269 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _helpers = __webpack_require__(237);
+
+	var _EstateItem = __webpack_require__(270);
+
+	var _EstateItem2 = _interopRequireDefault(_EstateItem);
+
+	var _lodash = __webpack_require__(262);
+
+	var _reactHammerjs = __webpack_require__(264);
+
+	var _reactHammerjs2 = _interopRequireDefault(_reactHammerjs);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Estates = function (_React$Component) {
+	  _inherits(Estates, _React$Component);
+
+	  function Estates() {
+	    _classCallCheck(this, Estates);
+
+	    var _this = _possibleConstructorReturn(this, (Estates.__proto__ || Object.getPrototypeOf(Estates)).call(this));
+
+	    _this.state = {
+	      estate: [],
+	      subs: [],
+	      nav: []
+	    };
+	    _this.domMap = {
+	      body: document.querySelector('body')
+	    };
+	    _this.onmouse = _this.onmouse.bind(_this);
+	    _this.handleSwipe = _this.handleSwipe.bind(_this);
+	    return _this;
+	  }
+
+	  _createClass(Estates, [{
+	    key: 'onmouse',
+	    value: function onmouse(event) {
+	      var direction = event.detail < 0 || event.wheelDelta > 0 ? 'up' : 'down';
+	      if (direction === 'up') {
+	        if (window.innerWidth > 920) {
+	          this.expandView();
+	        }
+	      } else {
+	        this.retractView();
+	      }
+	    }
+	  }, {
+	    key: 'handleSwipe',
+	    value: function handleSwipe(event) {
+	      console.log(event);
+	      var direction = event.deltaY < 0 ? 'up' : 'down';
+	      if (direction === 'up') {
+	        if (window.innerWidth > 920) {
+	          this.expandView();
+	        }
+	      } else {
+	        this.retractView();
+	      }
+	    }
+	  }, {
+	    key: 'retractView',
+	    value: function retractView() {
+	      this.domMap.body.classList.add('js-estate-inner');
+	      console.log('retract');
+	    }
+	  }, {
+	    key: 'expandView',
+	    value: function expandView() {
+	      this.domMap.body.classList.remove('js-estate-inner');
+	      console.log('expand');
+	    }
+	  }, {
+	    key: 'setPageStyle',
+	    value: function setPageStyle() {
+	      if (!this.props.params.id) return;
+	      this.retractView();
+	    }
+	  }, {
+	    key: 'resetPageStyle',
+	    value: function resetPageStyle() {
+	      this.expandView();
+	    }
+	  }, {
+	    key: 'initNav',
+	    value: function initNav() {
+	      var _this2 = this;
+
+	      (0, _helpers.getAdjacentEstates)(this.state.estate.order).then(function (response) {
+	        _this2.setState({
+	          nav: response.data.data
+	        });
+	      }).catch(function (err) {
+	        console.log(err);
+	      });
+	    }
+	  }, {
+	    key: 'init',
+	    value: function init(pageId) {
+	      var _this3 = this;
+
+	      var id = pageId || this.props.params.id;
+	      (0, _helpers.getEstates)(id).then(function (response) {
+	        _this3.setState({
+	          estate: response.estate.data[0],
+	          subs: response.subs.data
+	        });
+	        _this3.setPageStyle();
+	        _this3.initNav();
+	      }).catch(function (err) {
+	        console.log(err);
+	      });
+	      document.getElementById('main').addEventListener('wheel', (0, _lodash.debounce)(this.onmouse, 200, { leading: true, trailing: false }));
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this4 = this;
+
+	      this.init();
+	      this.domMap.body.classList.add('js-entering');
+	      setTimeout(function () {
+	        _this4.domMap.body.classList.remove('js-entering');
+	      }, 600);
+	    }
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      this.resetPageStyle();
+	    }
+	  }, {
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps(nextProps) {
+	      this.init(nextProps.params.id);
+	    }
+	  }, {
+	    key: 'rawMarkup',
+	    value: function rawMarkup(markup) {
+	      return { __html: markup };
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        _reactHammerjs2.default,
+	        { onSwipe: handleSwipe, direction: 'DIRECTION_VERTICAL' },
+	        _react2.default.createElement(_EstateItem2.default, {
+	          estate: this.state.estate,
+	          sub: this.state.subs,
+	          nav: this.state.nav,
+	          s3Path: this.props.s3Path
+	        })
+	      );
+	    }
+	  }]);
+
+	  return Estates;
+	}(_react2.default.Component);
+
+	Estates.defaultProps = {
+	  s3Path: 'https://s3.amazonaws.com/eytyy.com/estates/'
+	};
+
+	exports.default = Estates;
+
+/***/ },
+/* 270 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _EstateItemHeader = __webpack_require__(271);
+
+	var _EstateItemHeader2 = _interopRequireDefault(_EstateItemHeader);
+
+	var _EstateItemBody = __webpack_require__(273);
+
+	var _EstateItemBody2 = _interopRequireDefault(_EstateItemBody);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var EstateItem = function (_React$Component) {
+	  _inherits(EstateItem, _React$Component);
+
+	  function EstateItem(props) {
+	    _classCallCheck(this, EstateItem);
+
+	    return _possibleConstructorReturn(this, (EstateItem.__proto__ || Object.getPrototypeOf(EstateItem)).call(this, props));
+	  }
+
+	  _createClass(EstateItem, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'section',
+	        { key: this.props.estate._id, className: 'estate estate-section estate-section--' + this.props.estate.slug },
+	        _react2.default.createElement(_EstateItemHeader2.default, { estate: this.props.estate, s3Path: this.props.s3Path, nav: this.props.nav }),
+	        _react2.default.createElement(_EstateItemBody2.default, { parent: this.props.estate._id, data: this.props.sub, s3Path: this.props.s3Path })
+	      );
+	    }
+	  }]);
+
+	  return EstateItem;
+	}(_react2.default.Component);
+
+	exports.default = EstateItem;
+
+/***/ },
+/* 271 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(172);
+
+	var _EstateNav = __webpack_require__(272);
+
+	var _EstateNav2 = _interopRequireDefault(_EstateNav);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	// Header With 2 Cols
+	var EstateItemHeaderSplit = function EstateItemHeaderSplit(props) {
+	  return _react2.default.createElement(
+	    'header',
+	    { className: 'estate-section__header estate-section__header--split' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'estate__title-wrapper' },
+	      _react2.default.createElement(
+	        'h1',
+	        { className: 'estate__title' },
+	        props.item.title
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'estate__desc-wrapper' },
+	      _react2.default.createElement(
+	        'p',
+	        { className: 'estate__desc' },
+	        props.item['header description']
+	      )
+	    )
+	  );
+	};
+
+	// Header With Full Image
+	var EstateItemHeaderFull = function EstateItemHeaderFull(props) {
+	  var styles = {
+	    backgroundImage: props.item['header image'] && 'url(\'' + props.s3Path + props.item["header image"].filename + '\')'
+	  };
+	  return _react2.default.createElement(
+	    'header',
+	    { className: 'estate-section__header estate-section__header--full' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'wrapper' },
+	      _react2.default.createElement(
+	        'h1',
+	        { className: 'estate__title' },
+	        props.item.title
+	      )
+	    ),
+	    _react2.default.createElement('div', { className: 'estate__background', style: styles })
+	  );
+	};
+
+	var EstateItemHeader = function (_React$Component) {
+	  _inherits(EstateItemHeader, _React$Component);
+
+	  function EstateItemHeader(props) {
+	    _classCallCheck(this, EstateItemHeader);
+
+	    return _possibleConstructorReturn(this, (EstateItemHeader.__proto__ || Object.getPrototypeOf(EstateItemHeader)).call(this, props));
+	  }
+
+	  _createClass(EstateItemHeader, [{
+	    key: 'markup',
+	    value: function markup() {
+	      if (this.props.estate['header template'] !== 'Split') {
+	        return _react2.default.createElement(EstateItemHeaderFull, { item: this.props.estate, s3Path: this.props.s3Path });
+	      }
+	      return _react2.default.createElement(EstateItemHeaderSplit, { item: this.props.estate, s3Path: this.props.s3Path });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'estate-section__header__inner' },
+	        _react2.default.createElement(_EstateNav2.default, { nav: this.props.nav }),
+	        this.markup()
+	      );
+	    }
+	  }]);
+
+	  return EstateItemHeader;
+	}(_react2.default.Component);
+
+	exports.default = EstateItemHeader;
+
+/***/ },
+/* 272 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(172);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var EstateNav = function (_React$Component) {
+	  _inherits(EstateNav, _React$Component);
+
+	  function EstateNav(props) {
+	    _classCallCheck(this, EstateNav);
+
+	    return _possibleConstructorReturn(this, (EstateNav.__proto__ || Object.getPrototypeOf(EstateNav)).call(this, props));
+	  }
+
+	  _createClass(EstateNav, [{
+	    key: 'markup',
+	    value: function markup() {
+	      var len = this.props.nav.length;
+	      if (len) {
+	        if (len === 1) {
+	          var item = this.props.nav[0];
+	          if (item.order === 2) {
+	            return _react2.default.createElement(
+	              _reactRouter.Link,
+	              { className: 'estate-nav__item estate-nav__item--next', to: '/estate/' + item.slug },
+	              _react2.default.createElement('i', { className: 'fa fa-angle-right' })
+	            );
+	          }
+	          return _react2.default.createElement(
+	            _reactRouter.Link,
+	            { className: 'estate-nav__item estate-nav__item--prev', to: '/estate/' + item.slug },
+	            _react2.default.createElement('i', { className: 'fa fa-angle-left' })
+	          );
+	        }
+	        var back = this.props.nav[0];
+	        var next = this.props.nav[1];
+	        return _react2.default.createElement(
+	          'div',
+	          { className: 'estateNav-wrapper' },
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { className: 'estate-nav__item estate-nav__item--prev', to: '/estate/' + back.slug },
+	            _react2.default.createElement('i', { className: 'fa fa-angle-left' })
+	          ),
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { className: 'estate-nav__item estate-nav__item--next', to: '/estate/' + next.slug },
+	            _react2.default.createElement('i', { className: 'fa fa-angle-right' })
+	          )
+	        );
+	      }
+	    }
+	  }, {
+	    key: 'init',
+	    value: function init() {}
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'nav',
+	        { className: 'estate-navs' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'wrapper' },
+	          this.markup()
+	        )
+	      );
+	    }
+	  }]);
+
+	  return EstateNav;
+	}(_react2.default.Component);
+
+	exports.default = EstateNav;
+
+/***/ },
+/* 273 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var rawMarkup = function rawMarkup(markup) {
+	  return { __html: markup };
+	};
+
+	var EstateItemBodyImage = function EstateItemBodyImage(props) {
+	  var styles = {
+	    backgroundImage: props.item.image && "url('" + props.s3Path + props.item.image.filename + "')"
+	  };
+	  return _react2.default.createElement(
+	    "section",
+	    { className: "estate__sub estate__sub--image" },
+	    _react2.default.createElement("div", { className: "estate__sub__background", style: styles }),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "sub__text-wrapper" },
+	      _react2.default.createElement("h2", { className: "sub__text", dangerouslySetInnerHTML: rawMarkup(props.item.text) })
+	    )
+	  );
+	};
+
+	var EstateItemBodyDefault = function EstateItemBodyDefault(props) {
+	  return _react2.default.createElement(
+	    "section",
+	    { className: "estate__sub estate__sub--text" },
+	    _react2.default.createElement(
+	      "div",
+	      { className: "sub__text-wrapper" },
+	      _react2.default.createElement("p", { className: "sub__text", dangerouslySetInnerHTML: rawMarkup(props.item.text) })
+	    )
+	  );
+	};
+
+	var EstateItemBody = function (_React$Component) {
+	  _inherits(EstateItemBody, _React$Component);
+
+	  function EstateItemBody(props) {
+	    _classCallCheck(this, EstateItemBody);
+
+	    return _possibleConstructorReturn(this, (EstateItemBody.__proto__ || Object.getPrototypeOf(EstateItemBody)).call(this, props));
+	  }
+
+	  _createClass(EstateItemBody, [{
+	    key: "markup",
+	    value: function markup() {
+	      var _this2 = this;
+
+	      var item = this.props.data.find(function (x) {
+	        return x.estate === _this2.props.parent;
+	      });
+	      if (item) {
+	        if (item.template === 'Image') {
+	          return _react2.default.createElement(EstateItemBodyImage, { item: item, s3Path: this.props.s3Path });
+	        }
+	        return _react2.default.createElement(EstateItemBodyDefault, { item: item });
+	      }
+	    }
+	  }, {
+	    key: "render",
+	    value: function render() {
+	      return _react2.default.createElement(
+	        "div",
+	        { className: "estate-section__body__inner" },
+	        this.markup()
+	      );
+	    }
+	  }]);
+
+	  return EstateItemBody;
+	}(_react2.default.Component);
+
+	exports.default = EstateItemBody;
 
 /***/ }
 /******/ ]);
