@@ -20,9 +20,16 @@ class Home extends React.Component {
     });
   }
 
+  ontouch(event) {
+    console.log(event);
+  }
+
   init() {
     document.getElementById('app').addEventListener('wheel', debounce(
       this.onmouse, 200, { leading: true, trailing: false })
+    );
+    document.getElementById('app').addEventListener('touchmove', debounce(
+      this.ontouch, 200, { leading: true, trailing: false })
     );
   }
 
