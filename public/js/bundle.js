@@ -27217,15 +27217,15 @@
 	      var options = {
 	        preventDefault: true,
 	        recognizers: {
+	          touchAction: 'compute',
 	          swipe: {
-	            direction: 'DIRECTION_ALL',
 	            threshold: 10
 	          }
 	        }
 	      };
 	      return _react2.default.createElement(
 	        _reactHammerjs2.default,
-	        { onSwipe: this.handleSwipe, options: options },
+	        { onSwipe: this.handleSwipe, options: options, direction: true },
 	        _react2.default.createElement(
 	          'section',
 	          { className: 'section-home-wrapper' },
