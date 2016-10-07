@@ -24,7 +24,12 @@
     margin-top: 20em;
   }
 }
-.home {
+.home,
+.oils {
   overflow: hidden;
-  height: 100vh;
+  height: 100%;
+  body {
+    overflow: hidden;
+    height: 100%;
+  }
 }
