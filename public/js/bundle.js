@@ -27185,7 +27185,7 @@
 	  }, {
 	    key: 'init',
 	    value: function init() {
-	      document.getElementById('app').addEventListener('wheel', (0, _lodash.debounce)(this.onmouse, 200, { leading: true, trailing: true }));
+	      document.getElementById('app').addEventListener('wheel', (0, _lodash.debounce)(this.onmouse, 200, { leading: true, trailing: false }));
 	    }
 	  }, {
 	    key: 'updateActiveState',

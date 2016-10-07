@@ -34,7 +34,7 @@ class Home extends React.Component {
 
   init() {
     document.getElementById('app').addEventListener('wheel', debounce(
-      this.onmouse, 200, { leading: true, trailing: true })
+      this.onmouse, 200, { leading: true, trailing: false })
     );
   }
 
