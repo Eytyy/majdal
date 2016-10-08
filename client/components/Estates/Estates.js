@@ -27,7 +27,7 @@ class Estates extends React.Component {
   onmouse(event) {
     const direction = (event.detail < 0 || event.wheelDelta > 0) ? 'up' : 'down';
     if (direction === 'up') {
-      if (window.innerWidth < 920) {
+      if (window.innerWidth > 920) {
         this.expandView();
       }
     } else {
@@ -40,7 +40,7 @@ class Estates extends React.Component {
     if (direction === 'up') {
       this.retractView();
     } else {
-      if (window.innerWidth < 920) {
+      if (window.innerWidth > 920) {
         this.expandView();
       }
     }
