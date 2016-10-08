@@ -255,7 +255,7 @@ svg {
     .contact main {
       margin-top: 20em; } }
 
-.home, .oils {
+.home, .oils, .estate {
   overflow: hidden; }
 
 /* layout/_nav.scss */
@@ -1069,7 +1069,7 @@ button {
 
 .js-estate-inner .estate-navs {
   position: fixed;
-  top: 50%;
+  top: 49.6vh;
   left: 0;
   right: 0;
   z-index: 1; }
