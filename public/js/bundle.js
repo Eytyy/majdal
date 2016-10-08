@@ -48995,6 +48995,7 @@
 	    value: function handleSwipe(event) {
 	      console.log(event);
 	      var direction = event.deltaY < 0 ? 'up' : 'down';
+	      console.log(direction);
 	      if (direction === 'up') {
 	        if (window.innerWidth > 920) {
 	          this.expandView();
