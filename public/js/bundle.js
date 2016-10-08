@@ -48984,10 +48984,10 @@
 	      var direction = event.detail < 0 || event.wheelDelta > 0 ? 'up' : 'down';
 	      if (direction === 'up') {
 	        if (window.innerWidth > 920) {
-	          this.expandView();
+	          this.retractView();
 	        }
 	      } else {
-	        this.retractView();
+	        this.expandView();
 	      }
 	    }
 	  }, {
