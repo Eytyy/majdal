@@ -48983,9 +48983,11 @@
 	    value: function onmouse(event) {
 	      var direction = event.detail < 0 || event.wheelDelta > 0 ? 'up' : 'down';
 	      if (direction === 'up') {
-	        this.retractView();
+	        if (window.innerWidth < 920) {
+	          this.expandView();
+	        }
 	      } else {
-	        this.expandView();
+	        this.retractView();
 	      }
 	    }
 	  }, {
@@ -48995,7 +48997,9 @@
 	      if (direction === 'up') {
 	        this.retractView();
 	      } else {
-	        this.expandView();
+	        if (window.innerWidth < 920) {
+	          this.expandView();
+	        }
 	      }
 	    }
 	  }, {

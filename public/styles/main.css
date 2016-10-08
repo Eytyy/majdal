@@ -855,18 +855,6 @@ svg {
 .estate-container {
   position: relative; }
 
-.estate-navs {
-  position: fixed;
-  top: 50%;
-  left: 0;
-  right: 0;
-  z-index: 1; }
-  .estate-navs .wrapper {
-    z-index: 4; }
-  @media (min-width: 720px) {
-    .estate-navs {
-      position: static; } }
-
 .estate-nav__item {
   display: block;
   position: absolute;
@@ -1078,3 +1066,15 @@ button {
     position: static; }
   .js-estate-inner #app {
     padding-top: 0; } }
+
+.js-estate-inner .estate-navs {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  right: 0;
+  z-index: 1; }
+  .js-estate-inner .estate-navs .wrapper {
+    z-index: 4; }
+  @media (min-width: 720px) {
+    .js-estate-inner .estate-navs {
+      position: static; } }
