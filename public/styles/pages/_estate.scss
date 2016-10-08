@@ -265,19 +265,6 @@
 .estate-container {
   position: relative;
 }
-.estate-navs {
-  position: fixed;
-  top: 50%;
-  left: 0;
-  right: 0;
-  z-index: 1;
-  .wrapper {
-    z-index: 4;
-  }
-  @include respond-to(medium) {
-    position: static;
-  }
-}
 .estate-nav__item {
   display: block;
   position: absolute;
