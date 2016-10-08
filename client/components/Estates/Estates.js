@@ -27,9 +27,7 @@ class Estates extends React.Component {
   onmouse(event) {
     const direction = (event.detail < 0 || event.wheelDelta > 0) ? 'up' : 'down';
     if (direction === 'up') {
-      if (window.innerWidth > 920) {
-        this.expandView();
-      }
+      this.expandView();
     } else {
       this.retractView();
     }
@@ -38,13 +36,9 @@ class Estates extends React.Component {
   handleSwipe(event) {
     const direction = (event.deltaY < 0) ? 'up' : 'down';
     if (direction === 'up') {
-      if (!this.domMap.body.classList.contains('js-estate-inner')) {
-        this.retractView();
-      }
+      this.retractView();
     } else {
-      if (window.innerWidth > 920) {
-        this.expandView();
-      }
+      this.expandView();
     }
   }
 
@@ -113,15 +107,17 @@ class Estates extends React.Component {
 
   render() {
     return (
-        <section className="estate">
+      <section className="estate">
+        <Hammer onSwipe={this.handleSwipe} direction="DIRECTION_VERTICAL" >
           <EstateHeader data={ this.state.landing } s3Path={ this.props.s3Path } />
-          <EstateItem
-            estate={ this.state.estate }
-            sub={ this.state.subs }
-            nav={ this.state.nav }
-            s3Path={ this.props.s3Path }
-          />
-        </section>
+        </Hammer>
+        <EstateItem
+          estate={ this.state.estate }
+          sub={ this.state.subs }
+          nav={ this.state.nav }
+          s3Path={ this.props.s3Path }
+        />
+      </section>
     );
   }
 }

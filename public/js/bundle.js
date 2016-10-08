@@ -48983,9 +48983,7 @@
 	    value: function onmouse(event) {
 	      var direction = event.detail < 0 || event.wheelDelta > 0 ? 'up' : 'down';
 	      if (direction === 'up') {
-	        if (window.innerWidth > 920) {
-	          this.expandView();
-	        }
+	        this.expandView();
 	      } else {
 	        this.retractView();
 	      }
@@ -48995,13 +48993,9 @@
 	    value: function handleSwipe(event) {
 	      var direction = event.deltaY < 0 ? 'up' : 'down';
 	      if (direction === 'up') {
-	        if (!this.domMap.body.classList.contains('js-estate-inner')) {
-	          this.retractView();
-	        }
+	        this.retractView();
 	      } else {
-	        if (window.innerWidth > 920) {
-	          this.expandView();
-	        }
+	        this.expandView();
 	      }
 	    }
 	  }, {
@@ -49089,7 +49083,11 @@
 	      return _react2.default.createElement(
 	        'section',
 	        { className: 'estate' },
-	        _react2.default.createElement(_EstateHeader2.default, { data: this.state.landing, s3Path: this.props.s3Path }),
+	        _react2.default.createElement(
+	          _reactHammerjs2.default,
+	          { onSwipe: this.handleSwipe, direction: 'DIRECTION_VERTICAL' },
+	          _react2.default.createElement(_EstateHeader2.default, { data: this.state.landing, s3Path: this.props.s3Path })
+	        ),
 	        _react2.default.createElement(_EstateItem2.default, {
 	          estate: this.state.estate,
 	          sub: this.state.subs,
