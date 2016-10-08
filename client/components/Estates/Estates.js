@@ -1,6 +1,7 @@
 import React from 'react'
 import { getEstates, getAdjacentEstates } from '../../util/helpers';
 
+import EstateHeader from './EstateHeader';
 import EstateItem from './EstateItem';
 
 import { debounce } from 'lodash';
@@ -14,6 +15,7 @@ class Estates extends React.Component {
       estate: [],
       subs: [],
       nav: [],
+      landing: [],
     };
     this.domMap = {
       body: document.querySelector('body'),
@@ -78,6 +80,7 @@ class Estates extends React.Component {
     const id = pageId || this.props.params.id;
     getEstates(id).then(response => {
       this.setState({
+        landing: response.landing.data,
         estate: response.estate.data[0],
         subs: response.subs.data,
       });
@@ -112,12 +115,15 @@ class Estates extends React.Component {
   render() {
     return (
       <Hammer onSwipe={this.handleSwipe} direction="DIRECTION_VERTICAL" >
-        <EstateItem
-          estate={this.state.estate}
-          sub={this.state.subs}
-          nav={this.state.nav}
-          s3Path={this.props.s3Path}
-        />
+        <section className="estate">
+          <EstateHeader data={ this.state.landing } s3Path={ this.props.s3Path } />
+          <EstateItem
+            estate={ this.state.estate }
+            sub={ this.state.subs }
+            nav={ this.state.nav }
+            s3Path={ this.props.s3Path }
+          />
+        </section>
       </Hammer>
     );
   }

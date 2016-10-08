@@ -54,6 +54,7 @@ exports = module.exports = function(app) {
   app.get('/api/olives', keystone.middleware.api, routes.api.olives.getOlivesCategories);
   app.get('/api/olives/:id', keystone.middleware.api, routes.api.olives.getOlives);
 
+  app.get('/api/estatelanding', keystone.middleware.api, routes.api.estate.getLanding);
   app.get('/api/estate', keystone.middleware.api, routes.api.estate.getEstates);
   app.get('/api/estate/:id', keystone.middleware.api, routes.api.estate.getEstates);
 

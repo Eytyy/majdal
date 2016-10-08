@@ -45,12 +45,19 @@ function getEstatesSubs() {
     .catch(err => err);
 }
 
+function getEstateLanding() {
+  return axios.get('/api/estatelanding')
+    .then((results) => results)
+    .catch(err => err);
+}
+
 function getEstates(id) {
-  return axios.all([getEstatesMain(id), getEstatesSubs()])
+  return axios.all([getEstateLanding(), getEstatesMain(id), getEstatesSubs()])
     .then(arr => (
       {
-        estate: arr[0].data,
-        subs: arr[1].data,
+        landing: arr[0].data,
+        estate: arr[1].data,
+        subs: arr[2].data,
       }
     ));
 }

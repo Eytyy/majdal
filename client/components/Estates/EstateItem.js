@@ -9,9 +9,12 @@ class EstateItem extends React.Component {
   }
   render() {
     return (
-      <section key={this.props.estate._id} className={'estate estate-section estate-section--' + this.props.estate.slug}>
-        <EstateItemHeader estate={this.props.estate} s3Path={this.props.s3Path} nav={this.props.nav} />
-        <EstateItemBody parent={this.props.estate._id} data={this.props.sub} s3Path={this.props.s3Path} />
+      <section key={ this.props.estate._id }
+        className={ 'estate estate-section estate-section--' + this.props.estate.slug } >
+        <EstateItemHeader estate={ this.props.estate }
+          s3Path={ this.props.s3Path } nav={ this.props.nav } />
+        <EstateItemBody parent={ this.props.estate._id }
+          data={ this.props.sub } s3Path={ this.props.s3Path } />
       </section>
     );
   }

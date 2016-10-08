@@ -27417,11 +27417,20 @@
 	  });
 	}
 
+	function getEstateLanding() {
+	  return _axios2.default.get('/api/estatelanding').then(function (results) {
+	    return results;
+	  }).catch(function (err) {
+	    return err;
+	  });
+	}
+
 	function getEstates(id) {
-	  return _axios2.default.all([getEstatesMain(id), getEstatesSubs()]).then(function (arr) {
+	  return _axios2.default.all([getEstateLanding(), getEstatesMain(id), getEstatesSubs()]).then(function (arr) {
 	    return {
-	      estate: arr[0].data,
-	      subs: arr[1].data
+	      landing: arr[0].data,
+	      estate: arr[1].data,
+	      subs: arr[2].data
 	    };
 	  });
 	}
@@ -48925,6 +48934,10 @@
 
 	var _helpers = __webpack_require__(237);
 
+	var _EstateHeader = __webpack_require__(274);
+
+	var _EstateHeader2 = _interopRequireDefault(_EstateHeader);
+
 	var _EstateItem = __webpack_require__(270);
 
 	var _EstateItem2 = _interopRequireDefault(_EstateItem);
@@ -48954,7 +48967,8 @@
 	    _this.state = {
 	      estate: [],
 	      subs: [],
-	      nav: []
+	      nav: [],
+	      landing: []
 	    };
 	    _this.domMap = {
 	      body: document.querySelector('body')
@@ -49033,6 +49047,7 @@
 	      var id = pageId || this.props.params.id;
 	      (0, _helpers.getEstates)(id).then(function (response) {
 	        _this3.setState({
+	          landing: response.landing.data,
 	          estate: response.estate.data[0],
 	          subs: response.subs.data
 	        });
@@ -49075,12 +49090,17 @@
 	      return _react2.default.createElement(
 	        _reactHammerjs2.default,
 	        { onSwipe: this.handleSwipe, direction: 'DIRECTION_VERTICAL' },
-	        _react2.default.createElement(_EstateItem2.default, {
-	          estate: this.state.estate,
-	          sub: this.state.subs,
-	          nav: this.state.nav,
-	          s3Path: this.props.s3Path
-	        })
+	        _react2.default.createElement(
+	          'section',
+	          { className: 'estate' },
+	          _react2.default.createElement(_EstateHeader2.default, { data: this.state.landing, s3Path: this.props.s3Path }),
+	          _react2.default.createElement(_EstateItem2.default, {
+	            estate: this.state.estate,
+	            sub: this.state.subs,
+	            nav: this.state.nav,
+	            s3Path: this.props.s3Path
+	          })
+	        )
 	      );
 	    }
 	  }]);
@@ -49140,9 +49160,12 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'section',
-	        { key: this.props.estate._id, className: 'estate estate-section estate-section--' + this.props.estate.slug },
-	        _react2.default.createElement(_EstateItemHeader2.default, { estate: this.props.estate, s3Path: this.props.s3Path, nav: this.props.nav }),
-	        _react2.default.createElement(_EstateItemBody2.default, { parent: this.props.estate._id, data: this.props.sub, s3Path: this.props.s3Path })
+	        { key: this.props.estate._id,
+	          className: 'estate estate-section estate-section--' + this.props.estate.slug },
+	        _react2.default.createElement(_EstateItemHeader2.default, { estate: this.props.estate,
+	          s3Path: this.props.s3Path, nav: this.props.nav }),
+	        _react2.default.createElement(_EstateItemBody2.default, { parent: this.props.estate._id,
+	          data: this.props.sub, s3Path: this.props.s3Path })
 	      );
 	    }
 	  }]);
@@ -49454,6 +49477,68 @@
 	}(_react2.default.Component);
 
 	exports.default = EstateItemBody;
+
+/***/ },
+/* 274 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var EstateHeader = function EstateHeader(props) {
+	  var s3Path = 'https://s3.amazonaws.com/eytyy.com/landing-pages/';
+	  var styles = {
+	    backgroundImage: props.data.image && 'url(\'' + s3Path + props.data.image.filename + '\')'
+	  };
+	  if (props.data['header style'] === 'Title') {
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'landing-header landing-header--half' },
+	      _react2.default.createElement('div', { className: 'landing-background', style: styles }),
+	      _react2.default.createElement(
+	        'h2',
+	        { className: 'landing-title' },
+	        props.data['header title']
+	      )
+	    );
+	  }
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'landing-header landing-header--full' },
+	    _react2.default.createElement('div', { className: 'landing-background', style: styles }),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'landing-text-wrapper' },
+	      _react2.default.createElement(
+	        'p',
+	        { className: 'landing-text' },
+	        props.data['header paragraph']
+	      ),
+	      _react2.default.createElement(
+	        'button',
+	        { className: 'section__skipLink section__skipLink--estates' },
+	        _react2.default.createElement('i', { className: 'fa fa-angle-down' })
+	      )
+	    )
+	  );
+	};
+
+	EstateHeader.PropTypes = {
+	  image: {
+	    filename: _react2.default.PropTypes.string
+	  }
+	};
+
+	exports.default = EstateHeader;
 
 /***/ }
 /******/ ]);

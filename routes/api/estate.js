@@ -1,7 +1,19 @@
 var keystone = require('keystone');
-var Estates = keystone.list('Estate')
-var EstatesSub = keystone.list('EstateSub')
+var Estates = keystone.list('Estate');
+var EstatesSub = keystone.list('EstateSub');
+var EstateLanding = keystone.list('Page');
 
+
+exports.getLanding = function(req,res) {
+  EstateLanding.model.findOne({ slug: 'estates' }).exec(function (err, results) {
+    if (err) {
+      return res.apiError('database error', err);
+    }
+    res.apiResponse({
+      data: results,
+    });
+  });
+};
 
 // Estates
 exports.getEstates = function(req, res) {
