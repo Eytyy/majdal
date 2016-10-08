@@ -38,7 +38,9 @@ class Estates extends React.Component {
   handleSwipe(event) {
     const direction = (event.deltaY < 0) ? 'up' : 'down';
     if (direction === 'up') {
-      this.retractView();
+      if (!this.domMap.body.classList.contains('js-estate-inner')) {
+        this.retractView();
+      }
     } else {
       if (window.innerWidth > 920) {
         this.expandView();
@@ -48,12 +50,10 @@ class Estates extends React.Component {
 
   retractView() {
     this.domMap.body.classList.add('js-estate-inner');
-    console.log('retract');
   }
 
   expandView() {
     this.domMap.body.classList.remove('js-estate-inner');
-    console.log('expand');
   }
 
   setPageStyle() {

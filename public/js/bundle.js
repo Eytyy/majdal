@@ -48995,7 +48995,9 @@
 	    value: function handleSwipe(event) {
 	      var direction = event.deltaY < 0 ? 'up' : 'down';
 	      if (direction === 'up') {
-	        this.retractView();
+	        if (!this.domMap.body.classList.contains('js-estate-inner')) {
+	          this.retractView();
+	        }
 	      } else {
 	        if (window.innerWidth > 920) {
 	          this.expandView();
@@ -49006,13 +49008,11 @@
 	    key: 'retractView',
 	    value: function retractView() {
 	      this.domMap.body.classList.add('js-estate-inner');
-	      console.log('retract');
 	    }
 	  }, {
 	    key: 'expandView',
 	    value: function expandView() {
 	      this.domMap.body.classList.remove('js-estate-inner');
-	      console.log('expand');
 	    }
 	  }, {
 	    key: 'setPageStyle',
