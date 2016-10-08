@@ -113,7 +113,6 @@ class Estates extends React.Component {
 
   render() {
     return (
-      <Hammer onSwipe={this.handleSwipe} direction="DIRECTION_VERTICAL" >
         <section className="estate">
           <EstateHeader data={ this.state.landing } s3Path={ this.props.s3Path } />
           <EstateItem
@@ -123,7 +122,6 @@ class Estates extends React.Component {
             s3Path={ this.props.s3Path }
           />
         </section>
-      </Hammer>
     );
   }
 }

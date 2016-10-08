@@ -49087,19 +49087,15 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        _reactHammerjs2.default,
-	        { onSwipe: this.handleSwipe, direction: 'DIRECTION_VERTICAL' },
-	        _react2.default.createElement(
-	          'section',
-	          { className: 'estate' },
-	          _react2.default.createElement(_EstateHeader2.default, { data: this.state.landing, s3Path: this.props.s3Path }),
-	          _react2.default.createElement(_EstateItem2.default, {
-	            estate: this.state.estate,
-	            sub: this.state.subs,
-	            nav: this.state.nav,
-	            s3Path: this.props.s3Path
-	          })
-	        )
+	        'section',
+	        { className: 'estate' },
+	        _react2.default.createElement(_EstateHeader2.default, { data: this.state.landing, s3Path: this.props.s3Path }),
+	        _react2.default.createElement(_EstateItem2.default, {
+	          estate: this.state.estate,
+	          sub: this.state.subs,
+	          nav: this.state.nav,
+	          s3Path: this.props.s3Path
+	        })
 	      );
 	    }
 	  }]);
