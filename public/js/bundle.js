@@ -49033,12 +49033,6 @@
 	      }
 	    }
 	  }, {
-	    key: 'handlePageSwipe',
-	    value: function handlePageSwipe(event) {
-	      console.log('horizontal swipe');
-	      console.log(event);
-	    }
-	  }, {
 	    key: 'setupNav',
 	    value: function setupNav() {
 	      var len = this.state.nav.length;
@@ -49172,15 +49166,11 @@
 	        _react2.default.createElement(_EstateNav2.default, {
 	          nav: this.state.nav,
 	          next: this.state.nextPage, prev: this.state.previousPage }),
-	        _react2.default.createElement(
-	          _reactHammerjs2.default,
-	          { onSwipe: this.handlePageSwipe },
-	          _react2.default.createElement(_EstateItem2.default, {
-	            estate: this.state.estate,
-	            sub: this.state.subs,
-	            s3Path: this.props.s3Path
-	          })
-	        )
+	        _react2.default.createElement(_EstateItem2.default, {
+	          estate: this.state.estate,
+	          sub: this.state.subs,
+	          s3Path: this.props.s3Path
+	        })
 	      );
 	    }
 	  }]);
@@ -49376,6 +49366,10 @@
 
 	var _EstateItemBody2 = _interopRequireDefault(_EstateItemBody);
 
+	var _reactHammerjs = __webpack_require__(238);
+
+	var _reactHammerjs2 = _interopRequireDefault(_reactHammerjs);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -49390,20 +49384,33 @@
 	  function EstateItem(props) {
 	    _classCallCheck(this, EstateItem);
 
-	    return _possibleConstructorReturn(this, (EstateItem.__proto__ || Object.getPrototypeOf(EstateItem)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (EstateItem.__proto__ || Object.getPrototypeOf(EstateItem)).call(this, props));
+
+	    _this.handlePageSwipe = _this.handlePageSwipe.bind(_this);
+	    return _this;
 	  }
 
 	  _createClass(EstateItem, [{
+	    key: 'handlePageSwipe',
+	    value: function handlePageSwipe(event) {
+	      console.log('horizontal swipe');
+	      console.log(event);
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'section',
-	        { key: this.props.estate._id,
-	          className: 'estate estate-section estate-section--' + this.props.estate.slug },
-	        _react2.default.createElement(_EstateItemHeader2.default, { estate: this.props.estate,
-	          s3Path: this.props.s3Path }),
-	        _react2.default.createElement(_EstateItemBody2.default, { parent: this.props.estate._id,
-	          data: this.props.sub, s3Path: this.props.s3Path })
+	        _reactHammerjs2.default,
+	        { onSwipe: this.handlePageSwipe },
+	        _react2.default.createElement(
+	          'section',
+	          { key: this.props.estate._id,
+	            className: 'estate estate-section estate-section--' + this.props.estate.slug },
+	          _react2.default.createElement(_EstateItemHeader2.default, { estate: this.props.estate,
+	            s3Path: this.props.s3Path }),
+	          _react2.default.createElement(_EstateItemBody2.default, { parent: this.props.estate._id,
+	            data: this.props.sub, s3Path: this.props.s3Path })
+	        )
 	      );
 	    }
 	  }]);

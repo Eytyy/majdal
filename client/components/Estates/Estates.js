@@ -65,11 +65,6 @@ class Estates extends React.Component {
     }
   }
 
-  handlePageSwipe(event) {
-    console.log('horizontal swipe');
-    console.log(event);
-  }
-
   setupNav() {
     const len = this.state.nav.length;
     let next = null;
@@ -185,13 +180,11 @@ class Estates extends React.Component {
         <EstateNav
           nav={ this.state.nav }
           next={this.state.nextPage} prev={this.state.previousPage}/>
-        <Hammer onSwipe={this.handlePageSwipe} >
-          <EstateItem
-            estate={ this.state.estate }
-            sub={ this.state.subs }
-            s3Path={ this.props.s3Path }
-          />
-        </Hammer>
+        <EstateItem
+          estate={ this.state.estate }
+          sub={ this.state.subs }
+          s3Path={ this.props.s3Path }
+        />
       </section>
     );
   }
