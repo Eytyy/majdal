@@ -42,6 +42,7 @@ class Estates extends React.Component {
   }
 
   handleSwipe(event) {
+    console.log('vertical swipe');
     const direction = (event.deltaY < 0) ? 'up' : 'down';
     if (direction === 'up') {
       this.retractView();
@@ -65,6 +66,7 @@ class Estates extends React.Component {
   }
 
   handlePageSwipe(event) {
+    console.log('horizontal swipe');
     console.log(event);
   }
 

@@ -49008,6 +49008,7 @@
 	  }, {
 	    key: 'handleSwipe',
 	    value: function handleSwipe(event) {
+	      console.log('vertical swipe');
 	      var direction = event.deltaY < 0 ? 'up' : 'down';
 	      if (direction === 'up') {
 	        this.retractView();
@@ -49034,6 +49035,7 @@
 	  }, {
 	    key: 'handlePageSwipe',
 	    value: function handlePageSwipe(event) {
+	      console.log('horizontal swipe');
 	      console.log(event);
 	    }
 	  }, {
