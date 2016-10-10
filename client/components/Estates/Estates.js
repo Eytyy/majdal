@@ -2,10 +2,14 @@ import React from 'react'
 import { getEstates, getAdjacentEstates } from '../../util/helpers';
 
 import EstateHeader from './EstateHeader';
+import EstateNav from './EstateNav';
 import EstateItem from './EstateItem';
 
 import { debounce } from 'lodash';
 import Hammer from 'react-hammerjs';
+
+import { withRouter } from 'react-router';
+
 
 class Estates extends React.Component {
 
@@ -15,6 +19,8 @@ class Estates extends React.Component {
       estate: [],
       subs: [],
       nav: [],
+      nextPage: null,
+      previousPage: null,
       landing: [],
     };
     this.domMap = {
@@ -22,6 +28,8 @@ class Estates extends React.Component {
     };
     this.onmouse = this.onmouse.bind(this);
     this.handleSwipe = this.handleSwipe.bind(this);
+    this.handleKeys = this.handleKeys.bind(this);
+    this.setupNav = this.setupNav.bind(this);
   }
 
   onmouse(event) {
@@ -39,6 +47,67 @@ class Estates extends React.Component {
       this.retractView();
     } else {
       this.expandView();
+    }
+  }
+
+  navigateToNextPage() {
+    console.log('next page');
+    if (this.state.nextPage) {
+      this.props.router.push(this.state.nextPage)
+    }
+  }
+
+  navigateToPreviousPage() {
+    console.log('previous page');
+    if (this.state.previousPage) {
+      this.props.router.push(this.state.previousPage)
+    }
+  }
+
+  handlePageSwipe(event) {
+    console.log(event);
+  }
+
+  setupNav() {
+    const len = this.state.nav.length;
+    let next = null;
+    let prev = null;
+    if (len === 1) {
+      const item = this.state.nav[0];
+      if (item.order === 2) {
+        next = `/estate/${item.slug}`;
+      } else {
+        prev = `/estate/${item.slug}`;
+      }
+    } else {
+      prev = `/estate/${this.state.nav[0].slug}`;
+      next = `/estate/${this.state.nav[1].slug}`;
+    }
+    if (prev || next) {
+      this.setState({
+        nextPage: next,
+        previousPage: prev,
+      });
+    }
+  }
+
+  handleKeys(event) {
+    const key = event.keyCode;
+    switch (key) {
+      case 40:
+        this.retractView();
+        break;
+      case 38:
+        this.expandView();
+        break;
+      case 39:
+        this.navigateToNextPage();
+        break;
+      case 37:
+        this.navigateToPreviousPage();
+        break;
+      default:
+        return;
     }
   }
 
@@ -64,6 +133,7 @@ class Estates extends React.Component {
       this.setState({
         nav: response.data.data,
       });
+      this.setupNav();
     }).catch(err => {
       console.log(err);
     });
@@ -85,22 +155,21 @@ class Estates extends React.Component {
     document.getElementById('main').addEventListener('wheel', debounce(
       this.onmouse, 200, { leading: true, trailing: false })
     );
+    document.addEventListener('keydown', this.handleKeys);
   }
 
   componentDidMount() {
     this.init();
-    this.domMap.body.classList.add('js-entering');
-    setTimeout(() => {
-      this.domMap.body.classList.remove('js-entering');
-    }, 600);
   }
 
   componentWillUnmount() {
     this.resetPageStyle();
   }
+
   componentWillReceiveProps(nextProps) {
     this.init(nextProps.params.id);
   }
+
   rawMarkup(markup) {
     return { __html: markup };
   }
@@ -111,12 +180,16 @@ class Estates extends React.Component {
         <Hammer onSwipe={this.handleSwipe} direction="DIRECTION_VERTICAL" >
           <EstateHeader data={ this.state.landing } s3Path={ this.props.s3Path } />
         </Hammer>
-        <EstateItem
-          estate={ this.state.estate }
-          sub={ this.state.subs }
+        <EstateNav
           nav={ this.state.nav }
-          s3Path={ this.props.s3Path }
-        />
+          next={this.state.nextPage} prev={this.state.previousPage}/>
+        <Hammer onSwipe={this.handlePageSwipe} >
+          <EstateItem
+            estate={ this.state.estate }
+            sub={ this.state.subs }
+            s3Path={ this.props.s3Path }
+          />
+        </Hammer>
       </section>
     );
   }
@@ -126,4 +199,5 @@ Estates.defaultProps = {
   s3Path: 'https://s3.amazonaws.com/eytyy.com/estates/',
 };
 
-export default Estates;
+
+export default withRouter(Estates);

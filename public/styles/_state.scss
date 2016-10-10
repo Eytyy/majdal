@@ -55,6 +55,7 @@
     }
   }
 }
+
 .js-menu-active.olives-inner {
   .nav--main .nav__link,
   .social-link,
@@ -84,11 +85,8 @@
   }
 }
 
-.landing-text {
-  opacity: 1;
-  transition: opacity 0.2s linear;
-}
 .js-estate-inner {
+
   .landing-header {
     position: fixed;
     top: 0;
@@ -97,37 +95,47 @@
     height: 33.333vh;
     z-index: 2;
   }
+
   .landing-text {
+    transition: opacity 0.2s linear;
     opacity: 0;
   }
+
   #app {
     padding-top: 33.333vh;
   }
-  .section__skipLink--estates {
-    transform: rotate(180deg);
-    bottom: -10vh;
 
+  .section__skipLink--estates {
+    transform: rotate(180deg) translateX(50%);
+    bottom: -10vh;
   }
+
   @include respond-to(medium) {
     .landing-header {
       position: static;
     }
+
     #app {
       padding-top: 0;
+    }
+
+    .section__skipLink--estates {
+      transform: rotate(180deg) translateX(-50%);
     }
   }
 }
 
-.js-estate-inner .estate-navs {
-  position: fixed;
-  top: 49.6vh;
-  left: 0;
-  right: 0;
-  z-index: 1;
-  .wrapper {
-    z-index: 4;
+.js-estate-inner {
+  .estate-nav__item--prev {
+    left: 20px;
+    @include respond-to(large) {
+      left: 75px;
+    }
   }
-  @include respond-to(medium) {
-    position: static;
+  .estate-nav__item--next {
+    right: 20px;
+    @include respond-to(large) {
+      right: 75px;
+    }
   }
 }

@@ -68,9 +68,9 @@ svg {
 
 .nav--mobile {
   position: absolute;
-  right: 20px;
+  right: 0px;
   z-index: 3;
-  padding: 10px;
+  padding: 10px 20px;
   @include respond-to(nosnos) {
     display: none;
   }
@@ -78,7 +78,6 @@ svg {
 
 .nav-bar {
   width: 72%;
-  height: 0;
   flex: 1;
   order: 3;
   opacity: 0;

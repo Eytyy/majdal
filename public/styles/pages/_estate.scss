@@ -8,6 +8,7 @@
     height: 33.33vh;
   }
 }
+
 .estate-section__header--full,
 .estate__sub--text {
   height: 33.33vh;
@@ -32,6 +33,7 @@
     width: 100%;
   }
 }
+
 // --split
 .estate-section__header--split {
   display: flex;
@@ -82,8 +84,8 @@
       font-size: 24px;
     }
   }
-
 }
+
 // --full
 .estate-section__header--full {
   .estate__title {
@@ -262,44 +264,30 @@
     color: $blue;
   }
 }
+
 .estate-container {
   position: relative;
 }
+
 .estate-nav__item {
-  display: block;
-  position: absolute;
   font-size: 36px;
   color: $egg;
-  top: 54%;
-  transform: translateY(-50%);
+  display: block;
+  position: fixed;
+  top: 49.6vh;
   z-index: 1;
+  transform: translateY(-50%);
   @include respond-to(compact) {
     font-size: 46px;
   }
-  @include respond-to(medium) {
-    top: 50%;
-  }
-}
-.estate-nav__item--prev {
-  left: 20px;
-  transition: left 0.2s ease-in-out;
-  @include respond-to(large) {
-    left: 75px;
-  }
-}
-.estate-nav__item--next {
-  right: 20px;
-  transition: right 0.2s ease-in-out;
-  @include respond-to(large) {
-    right: 75px;
-  }
 }
 
-.js-entering {
-  .estate-nav__item--prev {
-    left: 0;
-  }
-  .estate-nav__item--next {
-    right: 0;
-  }
+.estate-nav__item--prev {
+  left: -100%;
+  transition: left 0.2s ease-in-out;
+}
+
+.estate-nav__item--next {
+  right: -100%;
+  transition: right 0.2s ease-in-out;
 }

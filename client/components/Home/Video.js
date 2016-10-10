@@ -12,10 +12,16 @@ class Video extends React.Component {
     this.onVideoClick = this.onVideoClick.bind(this);
     this.toggleVideo = this.toggleVideo.bind(this);
     this.scrollSection = this.scrollSection.bind(this);
+    this.videoEnded = this.videoEnded.bind(this);
   }
 
   init() {
-    this.refs.video.addEventListener('ended', this.scrollSection);
+    this.refs.video.addEventListener('ended', this.videoEnded);
+  }
+
+  videoEnded() {
+    this.scrollSection();
+    this.domMap.body.classList.remove('js-video--playing');
   }
 
   scrollSection() {

@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
-import EstateNav from './EstateNav';
 
 // Header With 2 Cols
 const EstateItemHeaderSplit = (props) => {
@@ -47,7 +45,6 @@ class EstateItemHeader extends React.Component {
   render() {
     return (
       <div className="estate-section__header__inner">
-        <EstateNav nav={this.props.nav} />
         {this.markup()}
       </div>
     );

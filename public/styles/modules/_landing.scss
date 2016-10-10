@@ -37,6 +37,10 @@
     font-size: 90px;
   }
 }
+.landing-text {
+  opacity: 1;
+  transition: opacity 0.2s linear;
+}
 .landing-text-wrapper {
   font-size: 22px;
   padding: 0 20px;

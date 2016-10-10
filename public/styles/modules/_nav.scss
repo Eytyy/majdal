@@ -34,9 +34,11 @@
 }
 
 .nav__item--main {
-  &:hover .nav--sub {
-    opacity: 1;
-    display: block;
+  @include respond-to(nosnos) {
+    &:hover .nav--sub {
+      opacity: 1;
+      display: block;
+    }
   }
   @include respond-to(xlarge) {
     &.active .nav__link--main:before {
@@ -96,9 +98,11 @@
 }
 
 .nav--sub {
-  margin-top: 19px;
-  opacity: 0;
-  display: none;
+  @include respond-to(nosnos) {
+    margin-top: 19px;
+    opacity: 0;
+    display: none;
+  }
 }
 
 .nav__item--sub {
