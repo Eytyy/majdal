@@ -49202,14 +49202,25 @@
 
 	var EstateHeader = function EstateHeader(props) {
 	  var s3Path = 'https://s3.amazonaws.com/eytyy.com/landing-pages/';
-	  var styles = {
-	    backgroundImage: props.data.image && 'url(\'' + s3Path + props.data.image.filename + '\')'
+
+	  var bg = function bg() {
+	    if (window.innerWidth > 1280) {
+	      var _styles = {
+	        backgroundImage: props.data.image && 'url(\'' + s3Path + props.data.image.filename + '\')'
+	      };
+	      return _react2.default.createElement('div', { className: 'landing-background', style: _styles });
+	    }
+	    var styles = {
+	      backgroundImage: props.data.image && 'url(\'' + s3Path + props.data['image mobile'].filename + '\')'
+	    };
+	    return _react2.default.createElement('div', { className: 'landing-background bg--mobile', style: styles });
 	  };
+
 	  if (props.data['header style'] === 'Title') {
 	    return _react2.default.createElement(
 	      'div',
 	      { className: 'landing-header landing-header--half' },
-	      _react2.default.createElement('div', { className: 'landing-background', style: styles }),
+	      bg(),
 	      _react2.default.createElement(
 	        'h2',
 	        { className: 'landing-title' },
@@ -49220,7 +49231,7 @@
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'landing-header landing-header--full' },
-	    _react2.default.createElement('div', { className: 'landing-background', style: styles }),
+	    bg(),
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'landing-text-wrapper' },
@@ -49472,8 +49483,17 @@
 
 	// Header With Full Image
 	var EstateItemHeaderFull = function EstateItemHeaderFull(props) {
-	  var styles = {
-	    backgroundImage: props.item['header image'] && "url('" + props.s3Path + props.item["header image"].filename + "')"
+	  var bg = function bg() {
+	    if (window.innerWidth > 1280) {
+	      var _styles = {
+	        backgroundImage: props.item['header image'] && "url('" + props.s3Path + props.item["header image"].filename + "')"
+	      };
+	      return _react2.default.createElement("div", { className: "estate__background", style: _styles });
+	    }
+	    var styles = {
+	      backgroundImage: props.item['header image mobile'] && "url('" + props.s3Path + props.item["header image"].filename + "')"
+	    };
+	    return _react2.default.createElement("div", { className: "estate__background bg--mobile", style: styles });
 	  };
 	  return _react2.default.createElement(
 	    "header",
@@ -49487,7 +49507,7 @@
 	        props.item.title
 	      )
 	    ),
-	    _react2.default.createElement("div", { className: "estate__background", style: styles })
+	    bg()
 	  );
 	};
 

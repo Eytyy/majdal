@@ -39,6 +39,10 @@ Page.add({
     type: Types.File,
     storage: storage,
   },
+  'image mobile': {
+    type: Types.File,
+    storage: storage,
+  },
   'header paragraph': {
     type: Types.Html,
     dependsOn: {

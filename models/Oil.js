@@ -29,6 +29,7 @@ Oil.add({
     required: true,
   },
   image: { type: Types.File, storage: storage },
+  'image mobile': { type: Types.File, storage: storage },
   description: { type: Types.Html, wysiwyg: true, height: 150 },
 });
 

@@ -43,6 +43,13 @@ Estate.add({
       'header template': 'Full',
     },
   },
+  'header image mobile': {
+    type: Types.File,
+    storage: storage,
+    dependsOn: {
+      'header template': 'Full',
+    },
+  },
   'header description': {
     type: Types.Html,
     dependsOn: {

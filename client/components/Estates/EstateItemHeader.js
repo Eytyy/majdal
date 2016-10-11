@@ -18,15 +18,24 @@ const EstateItemHeaderSplit = (props) => {
 
 // Header With Full Image
 const EstateItemHeaderFull = (props) => {
-  const styles = {
-    backgroundImage: props.item['header image'] && `url('${props.s3Path}${props.item["header image"].filename}')`,
+  const bg = () => {
+    if (window.innerWidth > 1280) {
+      const styles = {
+        backgroundImage: props.item['header image'] && `url('${props.s3Path}${props.item["header image"].filename}')`,
+      };
+      return <div className="estate__background" style={ styles } />;
+    }
+    const styles = {
+      backgroundImage: props.item['header image mobile'] && `url('${props.s3Path}${props.item["header image"].filename}')`,
+    };
+    return <div className="estate__background bg--mobile" style={ styles } />;
   }
   return (
     <header className="estate-section__header estate-section__header--full">
       <div className="wrapper">
         <h1 className="estate__title">{props.item.title}</h1>
       </div>
-      <div className="estate__background" style={ styles} />
+      { bg() }
     </header>
   );
 };

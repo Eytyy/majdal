@@ -31,8 +31,8 @@ Video.add({
     required: true,
   },
   placeholder: { type: Types.File, storage: storage },
+  'placeholder mobile': { type: Types.File, storage: storage },
   video: { type: Types.File, storage: storage },
-  loop: { type: Types.File, storage: storage },
 });
 
 Video.defaultColumns = 'title';
