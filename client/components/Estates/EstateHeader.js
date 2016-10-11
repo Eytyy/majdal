@@ -11,7 +11,7 @@ const EstateHeader = (props) => {
       return <div className="landing-background" style={ styles } />;
     }
     const styles = {
-      backgroundImage: props.data.image && `url('${s3Path}${props.data['image mobile'].filename}')`,
+      backgroundImage: props.data['image mobile'] && `url('${s3Path}${props.data['image mobile'].filename}')`,
     };
     return <div className="landing-background bg--mobile" style={ styles } />;
   };

@@ -49211,7 +49211,7 @@
 	      return _react2.default.createElement('div', { className: 'landing-background', style: _styles });
 	    }
 	    var styles = {
-	      backgroundImage: props.data.image && 'url(\'' + s3Path + props.data['image mobile'].filename + '\')'
+	      backgroundImage: props.data['image mobile'] && 'url(\'' + s3Path + props.data['image mobile'].filename + '\')'
 	    };
 	    return _react2.default.createElement('div', { className: 'landing-background bg--mobile', style: styles });
 	  };

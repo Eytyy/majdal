@@ -44,6 +44,13 @@ EstateSub.add({
       'template': 'Image',
     },
   },
+  'image mobile': {
+    type: Types.File,
+    storage: storage,
+    dependsOn: {
+      'template': 'Image',
+    },
+  },
   'text': {
     type: Types.Html,
     wysiwyg: true,
