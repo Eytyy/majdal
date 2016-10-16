@@ -24,24 +24,33 @@ var EstateSub = new keystone.List('EstateSub', {
 });
 
 EstateSub.add({
-  'title': {
+  title: {
     type: String,
     required: true,
   },
-  'estate': {
+  estate: {
     type: Types.Relationship,
     ref: 'Estate',
   },
-  'template': {
+  template: {
     type: Types.Select,
     options: 'Image, Text',
     default: 'Image',
   },
-  'image': {
+  'grid orientation': {
+    type: Types.Select,
+    options: 'Left to Right, Right to Left',
+    default: 'Left to Right',
+    note: 'Left to Right: Image on left | Right to Left: Image on left',
+    dependsOn: {
+      template: 'Image',
+    },
+  },
+  image: {
     type: Types.File,
     storage: storage,
     dependsOn: {
-      'template': 'Image',
+      template: 'Image',
     },
   },
   'image mobile': {
@@ -51,7 +60,7 @@ EstateSub.add({
       'template': 'Image',
     },
   },
-  'text': {
+  text: {
     type: Types.Html,
     wysiwyg: true,
   },

@@ -15,6 +15,7 @@ class Estates extends React.Component {
 
   constructor() {
     super();
+
     this.state = {
       estate: [],
       subs: [],
@@ -23,13 +24,18 @@ class Estates extends React.Component {
       previousPage: null,
       landing: [],
     };
+
     this.domMap = {
       body: document.querySelector('body'),
     };
+
     this.onmouse = this.onmouse.bind(this);
     this.handleSwipe = this.handleSwipe.bind(this);
+    this.handlePageSwipe = this.handlePageSwipe.bind(this);
     this.handleKeys = this.handleKeys.bind(this);
     this.setupNav = this.setupNav.bind(this);
+    this.navigateToNextPage = this.navigateToNextPage.bind(this);
+    this.navigateToPreviousPage = this.navigateToPreviousPage.bind(this);
   }
 
   onmouse(event) {
@@ -42,7 +48,6 @@ class Estates extends React.Component {
   }
 
   handleSwipe(event) {
-    console.log('vertical swipe');
     const direction = (event.deltaY < 0) ? 'up' : 'down';
     if (direction === 'up') {
       this.retractView();
@@ -51,15 +56,22 @@ class Estates extends React.Component {
     }
   }
 
+  handlePageSwipe(event) {
+    const direction = (event.deltaX < 0) ? 'next' : 'prev';
+    if (direction === 'next') {
+      this.navigateToNextPage();
+    } else if (direction === 'prev') {
+      this.navigateToPreviousPage();
+    }
+  }
+
   navigateToNextPage() {
-    console.log('next page');
     if (this.state.nextPage) {
       this.props.router.push(this.state.nextPage)
     }
   }
 
   navigateToPreviousPage() {
-    console.log('previous page');
     if (this.state.previousPage) {
       this.props.router.push(this.state.previousPage)
     }
@@ -177,14 +189,17 @@ class Estates extends React.Component {
         <Hammer onSwipe={this.handleSwipe} direction="DIRECTION_VERTICAL" >
           <EstateHeader data={ this.state.landing } s3Path={ this.props.s3Path } />
         </Hammer>
-        <EstateNav
-          nav={ this.state.nav }
-          next={this.state.nextPage} prev={this.state.previousPage}/>
-        <EstateItem
-          estate={ this.state.estate }
-          sub={ this.state.subs }
-          s3Path={ this.props.s3Path }
-        />
+          <EstateItem
+            estate={ this.state.estate }
+            sub={ this.state.subs }
+            s3Path={ this.props.s3Path }
+          />
+        <Hammer onSwipe={this.handlePageSwipe} direction="DIRECTION_HORIZONTAL" >
+          <EstateNav
+            nav={ this.state.nav }
+            next={this.state.nextPage} prev={this.state.previousPage}
+          />
+        </Hammer>
       </section>
     );
   }

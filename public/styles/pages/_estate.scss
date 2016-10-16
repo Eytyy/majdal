@@ -1,4 +1,8 @@
 // COMMON
+.estate {
+  position: relative;
+}
+
 .estate-section__header,
 .estate__sub {
   position: relative;
@@ -143,6 +147,9 @@
     height: 50%;
     width: 100%;
   }
+  &--rtl {
+    direction: rtl;
+  }
   @include respond-to(medium) {
     flex-direction: row;
     .estate__sub__background {
@@ -268,7 +275,15 @@
 .estate-container {
   position: relative;
 }
-
+.js-estate-inner .estate-navs {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  @include respond-to(medium) {
+    position: static;
+  }
+}
 .estate-nav__item {
   font-size: 36px;
   color: $egg;

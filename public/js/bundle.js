@@ -48985,13 +48985,18 @@
 	      previousPage: null,
 	      landing: []
 	    };
+
 	    _this.domMap = {
 	      body: document.querySelector('body')
 	    };
+
 	    _this.onmouse = _this.onmouse.bind(_this);
 	    _this.handleSwipe = _this.handleSwipe.bind(_this);
+	    _this.handlePageSwipe = _this.handlePageSwipe.bind(_this);
 	    _this.handleKeys = _this.handleKeys.bind(_this);
 	    _this.setupNav = _this.setupNav.bind(_this);
+	    _this.navigateToNextPage = _this.navigateToNextPage.bind(_this);
+	    _this.navigateToPreviousPage = _this.navigateToPreviousPage.bind(_this);
 	    return _this;
 	  }
 
@@ -49008,7 +49013,6 @@
 	  }, {
 	    key: 'handleSwipe',
 	    value: function handleSwipe(event) {
-	      console.log('vertical swipe');
 	      var direction = event.deltaY < 0 ? 'up' : 'down';
 	      if (direction === 'up') {
 	        this.retractView();
@@ -49017,9 +49021,18 @@
 	      }
 	    }
 	  }, {
+	    key: 'handlePageSwipe',
+	    value: function handlePageSwipe(event) {
+	      var direction = event.deltaX < 0 ? 'next' : 'prev';
+	      if (direction === 'next') {
+	        this.navigateToNextPage();
+	      } else if (direction === 'prev') {
+	        this.navigateToPreviousPage();
+	      }
+	    }
+	  }, {
 	    key: 'navigateToNextPage',
 	    value: function navigateToNextPage() {
-	      console.log('next page');
 	      if (this.state.nextPage) {
 	        this.props.router.push(this.state.nextPage);
 	      }
@@ -49027,7 +49040,6 @@
 	  }, {
 	    key: 'navigateToPreviousPage',
 	    value: function navigateToPreviousPage() {
-	      console.log('previous page');
 	      if (this.state.previousPage) {
 	        this.props.router.push(this.state.previousPage);
 	      }
@@ -49163,14 +49175,19 @@
 	          { onSwipe: this.handleSwipe, direction: 'DIRECTION_VERTICAL' },
 	          _react2.default.createElement(_EstateHeader2.default, { data: this.state.landing, s3Path: this.props.s3Path })
 	        ),
-	        _react2.default.createElement(_EstateNav2.default, {
-	          nav: this.state.nav,
-	          next: this.state.nextPage, prev: this.state.previousPage }),
 	        _react2.default.createElement(_EstateItem2.default, {
 	          estate: this.state.estate,
 	          sub: this.state.subs,
 	          s3Path: this.props.s3Path
-	        })
+	        }),
+	        _react2.default.createElement(
+	          _reactHammerjs2.default,
+	          { onSwipe: this.handlePageSwipe, direction: 'DIRECTION_HORIZONTAL' },
+	          _react2.default.createElement(_EstateNav2.default, {
+	            nav: this.state.nav,
+	            next: this.state.nextPage, prev: this.state.previousPage
+	          })
+	        )
 	      );
 	    }
 	  }]);
@@ -49395,33 +49412,26 @@
 	  function EstateItem(props) {
 	    _classCallCheck(this, EstateItem);
 
-	    var _this = _possibleConstructorReturn(this, (EstateItem.__proto__ || Object.getPrototypeOf(EstateItem)).call(this, props));
-
-	    _this.handlePageSwipe = _this.handlePageSwipe.bind(_this);
-	    return _this;
+	    return _possibleConstructorReturn(this, (EstateItem.__proto__ || Object.getPrototypeOf(EstateItem)).call(this, props));
 	  }
 
 	  _createClass(EstateItem, [{
-	    key: 'handlePageSwipe',
-	    value: function handlePageSwipe(event) {
-	      console.log('horizontal swipe');
-	      console.log(event);
-	    }
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {}
+	  }, {
+	    key: 'componentDidUpdate',
+	    value: function componentDidUpdate(prevProps, prevState) {}
 	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        _reactHammerjs2.default,
-	        { onSwipe: this.handlePageSwipe },
-	        _react2.default.createElement(
-	          'section',
-	          { key: this.props.estate._id,
-	            className: 'estate estate-section estate-section--' + this.props.estate.slug },
-	          _react2.default.createElement(_EstateItemHeader2.default, { estate: this.props.estate,
-	            s3Path: this.props.s3Path }),
-	          _react2.default.createElement(_EstateItemBody2.default, { parent: this.props.estate._id,
-	            data: this.props.sub, s3Path: this.props.s3Path })
-	        )
+	        'section',
+	        { key: this.props.estate._id,
+	          className: 'estate estate-section estate-section--' + this.props.estate.slug },
+	        _react2.default.createElement(_EstateItemHeader2.default, { estate: this.props.estate,
+	          s3Path: this.props.s3Path }),
+	        _react2.default.createElement(_EstateItemBody2.default, { parent: this.props.estate._id,
+	          data: this.props.sub, s3Path: this.props.s3Path })
 	      );
 	    }
 	  }]);
@@ -49548,7 +49558,7 @@
 /* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -49574,28 +49584,33 @@
 
 	var EstateItemBodyImage = function EstateItemBodyImage(props) {
 	  var styles = {
-	    backgroundImage: props.item.image && "url('" + props.s3Path + props.item.image.filename + "')"
+	    backgroundImage: props.item.image && 'url(\'' + props.s3Path + props.item.image.filename + '\')'
 	  };
+
+	  var dirClass = props.item['grid orientation'] === 'Right to Left' ? 'estate__sub--image--rtl' : 'estate__sub--image--ltr';
+
+	  var classes = 'estate__sub estate__sub--image ' + dirClass;
+
 	  return _react2.default.createElement(
-	    "section",
-	    { className: "estate__sub estate__sub--image" },
-	    _react2.default.createElement("div", { className: "estate__sub__background", style: styles }),
+	    'section',
+	    { className: classes },
+	    _react2.default.createElement('div', { className: 'estate__sub__background', style: styles }),
 	    _react2.default.createElement(
-	      "div",
-	      { className: "sub__text-wrapper" },
-	      _react2.default.createElement("h2", { className: "sub__text", dangerouslySetInnerHTML: rawMarkup(props.item.text) })
+	      'div',
+	      { className: 'sub__text-wrapper' },
+	      _react2.default.createElement('h2', { className: 'sub__text', dangerouslySetInnerHTML: rawMarkup(props.item.text) })
 	    )
 	  );
 	};
 
 	var EstateItemBodyDefault = function EstateItemBodyDefault(props) {
 	  return _react2.default.createElement(
-	    "section",
-	    { className: "estate__sub estate__sub--text" },
+	    'section',
+	    { className: 'estate__sub estate__sub--text' },
 	    _react2.default.createElement(
-	      "div",
-	      { className: "sub__text-wrapper" },
-	      _react2.default.createElement("p", { className: "sub__text", dangerouslySetInnerHTML: rawMarkup(props.item.text) })
+	      'div',
+	      { className: 'sub__text-wrapper' },
+	      _react2.default.createElement('p', { className: 'sub__text', dangerouslySetInnerHTML: rawMarkup(props.item.text) })
 	    )
 	  );
 	};
@@ -49610,7 +49625,7 @@
 	  }
 
 	  _createClass(EstateItemBody, [{
-	    key: "markup",
+	    key: 'markup',
 	    value: function markup() {
 	      var _this2 = this;
 
@@ -49625,11 +49640,11 @@
 	      }
 	    }
 	  }, {
-	    key: "render",
+	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        "div",
-	        { className: "estate-section__body__inner" },
+	        'div',
+	        { className: 'estate-section__body__inner' },
 	        this.markup()
 	      );
 	    }

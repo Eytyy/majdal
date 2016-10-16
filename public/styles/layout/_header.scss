@@ -104,14 +104,8 @@ svg {
 
 .nav--admin {
   position: absolute;
-  right: $gutter;
-  top: -2.5em;
-  @include respond-to(medium) {
-    right: $gutter--large;
-  }
-  @include respond-to(large) {
-    right: $gutter--max;
-  }
+  right: 0;
+  top: -7em;
 }
 
 .social-links {
