@@ -14,8 +14,35 @@ class OlivesCategories extends React.Component {
       this.setState({
         data: response.data.olives,
       });
+      this.initSlider();
     }).catch(err => {
       console.log(err);
+    });
+  }
+
+  initSlider() {
+    $('.olives-list').slick({
+      mobileFirst: true,
+      slidesToShow: 1,
+      nextArrow: $('.nav--next'),
+      prevArrow: $('.nav--back'),
+      speed: 400,
+      responsive: [
+        {
+          breakpoint: 720,
+          settings: {
+            slidesToShow: 3,
+            infinite: true,
+          },
+        },
+        {
+          breakpoint: 1280,
+          settings: {
+            slidesToShow: 4,
+            infinite: true,
+          },
+        },
+      ],
     });
   }
 
@@ -30,9 +57,17 @@ class OlivesCategories extends React.Component {
       );
     });
     return (
-      <ul className="olives-list">
-        {olivesCategories}
-      </ul>
+      <div>
+        <button className="olive-slider__nav nav--back" role="button">
+          <i className="fa fa-angle-left"></i>
+        </button>
+        <button className="olive-slider__nav nav--next" role="button">
+          <i className="fa fa-angle-right"></i>
+        </button>
+        <ul className="olives-list">
+          {olivesCategories}
+        </ul>
+      </div>
     );
   }
 }

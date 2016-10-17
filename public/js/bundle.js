@@ -48701,8 +48701,33 @@
 	        _this2.setState({
 	          data: response.data.olives
 	        });
+	        _this2.initSlider();
 	      }).catch(function (err) {
 	        console.log(err);
+	      });
+	    }
+	  }, {
+	    key: 'initSlider',
+	    value: function initSlider() {
+	      $('.olives-list').slick({
+	        mobileFirst: true,
+	        slidesToShow: 1,
+	        nextArrow: $('.nav--next'),
+	        prevArrow: $('.nav--back'),
+	        speed: 400,
+	        responsive: [{
+	          breakpoint: 720,
+	          settings: {
+	            slidesToShow: 3,
+	            infinite: true
+	          }
+	        }, {
+	          breakpoint: 1280,
+	          settings: {
+	            slidesToShow: 4,
+	            infinite: true
+	          }
+	        }]
 	      });
 	    }
 	  }, {
@@ -48722,9 +48747,23 @@
 	        );
 	      });
 	      return _react2.default.createElement(
-	        'ul',
-	        { className: 'olives-list' },
-	        olivesCategories
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'button',
+	          { className: 'olive-slider__nav nav--back', role: 'button' },
+	          _react2.default.createElement('i', { className: 'fa fa-angle-left' })
+	        ),
+	        _react2.default.createElement(
+	          'button',
+	          { className: 'olive-slider__nav nav--next', role: 'button' },
+	          _react2.default.createElement('i', { className: 'fa fa-angle-right' })
+	        ),
+	        _react2.default.createElement(
+	          'ul',
+	          { className: 'olives-list' },
+	          olivesCategories
+	        )
 	      );
 	    }
 	  }]);
@@ -49426,12 +49465,14 @@
 	  }, {
 	    key: 'componentDidUpdate',
 	    value: function componentDidUpdate() {
+	      console.log('loaded');
 	      this.refs.loader.classList.remove('active');
 	      console.log(this.refs.loader);
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      console.log('loading');
 	      return _react2.default.createElement(
 	        'section',
 	        { key: this.props.estate._id,

@@ -580,11 +580,15 @@ svg {
   color: #000; }
 
 .olives-list {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   list-style: none;
-  margin-top: 10vh; }
+  margin-top: 5vh; }
+  .olives-list img {
+    margin: 0 auto; }
+  .olives-list a {
+    outline: 0; }
+  @media (min-width: 780px) {
+    .olives-list {
+      margin-top: 10vh; } }
 
 .olives-slider {
   display: block;
@@ -628,7 +632,7 @@ svg {
 .olive-slider__nav {
   position: absolute;
   top: 50%;
-  transform: tranlsateY(-50%);
+  transform: translateY(-50%);
   outline: 0;
   z-index: 1; }
   .olive-slider__nav i {

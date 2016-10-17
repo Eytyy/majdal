@@ -16,11 +16,13 @@ class EstateItem extends React.Component {
   }
 
   componentDidUpdate() {
+    console.log('loaded');
     this.refs.loader.classList.remove('active');
     console.log(this.refs.loader);
   }
 
   render() {
+    console.log('loading');
     return (
       <section key={ this.props.estate._id }
         className={ 'estate estate-section estate-section--' + this.props.estate.slug } >

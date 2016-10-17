@@ -20,11 +20,17 @@
   }
 }
 .olives-list {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   list-style: none;
-  margin-top: 10vh;
+  margin-top: 5vh;
+  img {
+    margin: 0 auto;
+  }
+  a {
+    outline: 0;
+  }
+  @include respond-to(medium) {
+    margin-top: 10vh;
+  }
 }
 .olives-slider {
   display: block;
@@ -70,7 +76,7 @@
 .olive-slider__nav {
   position: absolute;
   top: 50%;
-  transform: tranlsateY(-50%);
+  transform: translateY(-50%);
   outline: 0;
   z-index: 1;
   i {
