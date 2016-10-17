@@ -111,14 +111,12 @@ svg {
 .social-links {
   position: absolute;
   display: flex;
-  justify-content: space-between;
   order: 1;
-  width: 30%;
-  max-width: 120px;
+  li {
+    margin: 0 auto;
+  }
   @include respond-to(nosnos) {
     position: relative;
-    width: 13.6%;
-    max-width: 165px;
     order: 3;
   }
 }

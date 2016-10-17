@@ -187,15 +187,12 @@ svg {
 .social-links {
   position: absolute;
   display: flex;
-  justify-content: space-between;
-  order: 1;
-  width: 30%;
-  max-width: 120px; }
+  order: 1; }
+  .social-links li {
+    margin: 0 auto; }
   @media (min-width: 920px) {
     .social-links {
       position: relative;
-      width: 13.6%;
-      max-width: 165px;
       order: 3; } }
 
 .social-link {

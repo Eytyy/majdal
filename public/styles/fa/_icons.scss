@@ -1,7 +1,7 @@
 /* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
    readers do not read off random characters that represent icons */
 
-.#{$fa-css-prefix}-facebook:before { content: $fa-var-facebook; }
+.#{$fa-css-prefix}-facebook-official:before { content: $fa-var-facebook-official; }
 .#{$fa-css-prefix}-twitter:before { content: $fa-var-twitter; }
 .#{$fa-css-prefix}-angle-left:before { content: $fa-var-angle-left; }
 .#{$fa-css-prefix}-angle-right:before { content: $fa-var-angle-right; }
