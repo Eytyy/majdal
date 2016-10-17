@@ -306,3 +306,8 @@
   right: -100%;
   transition: right 0.2s ease-in-out;
 }
+.loader.active {
+  height: 10px;
+  width: 100%;
+  background: red;
+}

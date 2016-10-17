@@ -49412,15 +49412,23 @@
 	  function EstateItem(props) {
 	    _classCallCheck(this, EstateItem);
 
-	    return _possibleConstructorReturn(this, (EstateItem.__proto__ || Object.getPrototypeOf(EstateItem)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (EstateItem.__proto__ || Object.getPrototypeOf(EstateItem)).call(this, props));
+
+	    _this.state = {};
+	    return _this;
 	  }
 
 	  _createClass(EstateItem, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {}
+	    key: 'shouldComponentUpdate',
+	    value: function shouldComponentUpdate(nextProps) {
+	      return this.props.estate.slug !== nextProps.estate.slug;
+	    }
 	  }, {
 	    key: 'componentDidUpdate',
-	    value: function componentDidUpdate(prevProps, prevState) {}
+	    value: function componentDidUpdate() {
+	      this.refs.loader.classList.remove('active');
+	      console.log(this.refs.loader);
+	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
@@ -49428,6 +49436,11 @@
 	        'section',
 	        { key: this.props.estate._id,
 	          className: 'estate estate-section estate-section--' + this.props.estate.slug },
+	        _react2.default.createElement(
+	          'div',
+	          { ref: 'loader', className: 'loader active' },
+	          this.state.progress
+	        ),
 	        _react2.default.createElement(_EstateItemHeader2.default, { estate: this.props.estate,
 	          s3Path: this.props.s3Path }),
 	        _react2.default.createElement(_EstateItemBody2.default, { parent: this.props.estate._id,
