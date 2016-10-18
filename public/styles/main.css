@@ -889,10 +889,28 @@ svg {
   right: -100%;
   transition: right 0.2s ease-in-out; }
 
+.loader {
+  height: 3px;
+  background: #BBC6D1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateX(100%);
+  z-index: 100; }
+
 .loader.active {
-  height: 10px;
-  width: 100%;
-  background: red; }
+  animation: shift-rightwards 1s ease-in-out infinite; }
+
+@keyframes shift-rightwards {
+  0% {
+    transform: translateX(-100%); }
+  40% {
+    transform: translateX(0%); }
+  60% {
+    transform: translateX(0%); }
+  100% {
+    transform: translateX(100%); } }
 
 .contact {
   background: #B59276;

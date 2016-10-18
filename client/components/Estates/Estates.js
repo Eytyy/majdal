@@ -36,6 +36,7 @@ class Estates extends React.Component {
     this.setupNav = this.setupNav.bind(this);
     this.navigateToNextPage = this.navigateToNextPage.bind(this);
     this.navigateToPreviousPage = this.navigateToPreviousPage.bind(this);
+    this.hideLoader = this.hideLoader.bind(this);
   }
 
   onmouse(event) {
@@ -176,7 +177,16 @@ class Estates extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    this.refs.loader.classList.add('active');
+    console.log(new Date());
+    console.log('loader active');
     this.init(nextProps.params.id);
+  }
+
+  hideLoader() {
+    this.refs.loader.classList.remove('active');
+    console.log(new Date());
+    console.log('loader hidden');
   }
 
   rawMarkup(markup) {
@@ -189,11 +199,13 @@ class Estates extends React.Component {
         <Hammer onSwipe={this.handleSwipe} direction="DIRECTION_VERTICAL" >
           <EstateHeader data={ this.state.landing } s3Path={ this.props.s3Path } />
         </Hammer>
-          <EstateItem
-            estate={ this.state.estate }
-            sub={ this.state.subs }
-            s3Path={ this.props.s3Path }
-          />
+        <div ref={'loader'} className="loader active"></div>
+        <EstateItem
+          estate={ this.state.estate }
+          sub={ this.state.subs }
+          s3Path={ this.props.s3Path }
+          didUpdate= { this.hideLoader }
+        />
         <Hammer onSwipe={this.handlePageSwipe} direction="DIRECTION_HORIZONTAL" >
           <EstateNav
             nav={ this.state.nav }

@@ -49036,6 +49036,7 @@
 	    _this.setupNav = _this.setupNav.bind(_this);
 	    _this.navigateToNextPage = _this.navigateToNextPage.bind(_this);
 	    _this.navigateToPreviousPage = _this.navigateToPreviousPage.bind(_this);
+	    _this.hideLoader = _this.hideLoader.bind(_this);
 	    return _this;
 	  }
 
@@ -49196,7 +49197,17 @@
 	  }, {
 	    key: 'componentWillReceiveProps',
 	    value: function componentWillReceiveProps(nextProps) {
+	      this.refs.loader.classList.add('active');
+	      console.log(new Date());
+	      console.log('loader active');
 	      this.init(nextProps.params.id);
+	    }
+	  }, {
+	    key: 'hideLoader',
+	    value: function hideLoader() {
+	      this.refs.loader.classList.remove('active');
+	      console.log(new Date());
+	      console.log('loader hidden');
 	    }
 	  }, {
 	    key: 'rawMarkup',
@@ -49214,10 +49225,12 @@
 	          { onSwipe: this.handleSwipe, direction: 'DIRECTION_VERTICAL' },
 	          _react2.default.createElement(_EstateHeader2.default, { data: this.state.landing, s3Path: this.props.s3Path })
 	        ),
+	        _react2.default.createElement('div', { ref: 'loader', className: 'loader active' }),
 	        _react2.default.createElement(_EstateItem2.default, {
 	          estate: this.state.estate,
 	          sub: this.state.subs,
-	          s3Path: this.props.s3Path
+	          s3Path: this.props.s3Path,
+	          didUpdate: this.hideLoader
 	        }),
 	        _react2.default.createElement(
 	          _reactHammerjs2.default,
@@ -49453,7 +49466,7 @@
 
 	    var _this = _possibleConstructorReturn(this, (EstateItem.__proto__ || Object.getPrototypeOf(EstateItem)).call(this, props));
 
-	    _this.state = {};
+	    console.log('yo');
 	    return _this;
 	  }
 
@@ -49465,23 +49478,15 @@
 	  }, {
 	    key: 'componentDidUpdate',
 	    value: function componentDidUpdate() {
-	      console.log('loaded');
-	      this.refs.loader.classList.remove('active');
-	      console.log(this.refs.loader);
+	      this.props.didUpdate();
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      console.log('loading');
 	      return _react2.default.createElement(
 	        'section',
 	        { key: this.props.estate._id,
 	          className: 'estate estate-section estate-section--' + this.props.estate.slug },
-	        _react2.default.createElement(
-	          'div',
-	          { ref: 'loader', className: 'loader active' },
-	          this.state.progress
-	        ),
 	        _react2.default.createElement(_EstateItemHeader2.default, { estate: this.props.estate,
 	          s3Path: this.props.s3Path }),
 	        _react2.default.createElement(_EstateItemBody2.default, { parent: this.props.estate._id,
